@@ -9,8 +9,8 @@ export const FirstSection: React.FC = () => {
     <Container>
       <div className="leftSide">
         <div className="content">
-          <Typography.Heading>PUBLIC HEALTH MEDICINE.</Typography.Heading>
-          <Typography.Heading>SCIENCE</Typography.Heading>
+          <Typography.Heading1>PUBLIC HEALTH MEDICINE.</Typography.Heading1>
+          <Typography.Heading1>SCIENCE</Typography.Heading1>
           <div className="subtitle">
             <Typography.Subtitle>
               Community of scientists and medical workers promoting science and empirical thinking
@@ -22,9 +22,7 @@ export const FirstSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="rightSide">
-        <Image src="/landing/4386464.jpg" layout="fill" />
-      </div>
+      <div className="rightSide">{/* <Image src="/landing/4386464.jpg" layout="fill" /> */}</div>
     </Container>
   );
 };
@@ -63,6 +61,11 @@ const Container = styled.div`
     position: relative;
     height: 100%;
     flex: 2;
+
     background-color: #18191f;
+    background-image: url('/landing/4386464.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 `;

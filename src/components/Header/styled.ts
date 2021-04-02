@@ -13,6 +13,10 @@ export const HeaderContainer = styled.header`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+
+  span {
+    margin-left: 1%;
+  }
   /* background-color: ${({ theme }) => theme.colors.white}; */
 
   /* box-shadow: 0px 1px 0px #e5e9f2; */
@@ -50,4 +54,11 @@ export const NavItemsBlock = styled.div`
       margin-right: 0;
     }
   }
+`;
+
+export const HeaderLogo = styled.div`
+  background: url(/icons/logo.png) center no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 32px;
 `;
