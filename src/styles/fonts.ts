@@ -19,6 +19,14 @@ const fontFaces = css`
   }
   @font-face {
     font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Medium.woff2') format('woff2'),
+      url('/fonts/Montserrat/Montserrat-Medium.woff') format('woff'),
+      url('/fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Montserrat';
     src: url('/fonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2'),
       url('/fonts/Montserrat/Montserrat-SemiBold.woff') format('woff'),
       url('/fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');

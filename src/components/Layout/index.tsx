@@ -7,7 +7,7 @@ interface Props {
 
 export const Layout: FC<Props> = (props) => {
   return (
-    <div>
+    <>
       <Head>
         <title>{props.title}</title>
         <meta charSet="utf-8" />
@@ -16,6 +16,6 @@ export const Layout: FC<Props> = (props) => {
       {/** Header */}
       {props.children}
       {/** Footer */}
-    </div>
+    </>
   );
 };
