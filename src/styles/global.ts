@@ -86,7 +86,6 @@ const resetCss = css`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
   }
@@ -146,7 +145,6 @@ const resetCss = css`
     padding: 0;
     border: 0;
     font-family: inherit;
-    font-size: 100%;
     outline: none;
   }
   input,
@@ -184,6 +182,9 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: ${({ theme }) => theme.fontPrimary};
+  }
+  html, body {
+    font-size: 62.5%;
   }
 `;
 

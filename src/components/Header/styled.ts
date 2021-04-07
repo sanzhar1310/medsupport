@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  height: 72px;
+  height: 7.2rem;
 
   z-index: 2;
   position: fixed;
   top: 0;
 
-  padding: 0 165px;
+  padding: 0 16.5rem;
 
   display: flex;
   flex-flow: row nowrap;
@@ -19,7 +19,7 @@ export const HeaderContainer = styled.header`
   }
   /* background-color: ${({ theme }) => theme.colors.white}; */
 
-  /* box-shadow: 0px 1px 0px #e5e9f2; */
+  /* box-shadow: rem 0.1rem rem #e5e9f2; */
 `;
 
 export const SocialBlock = styled.div`
@@ -28,7 +28,7 @@ export const SocialBlock = styled.div`
   margin-left: auto;
 
   .icon {
-    margin-right: 14px;
+    margin-right: 1.4rem;
     :last-child {
       margin-right: 0;
     }
@@ -49,7 +49,7 @@ export const NavItemsBlock = styled.div`
         color: ${({ theme }) => theme.colors.primary};
       }
     }
-    margin-right: 32px;
+    margin-right: 3.2rem;
     :last-child {
       margin-right: 0;
     }
@@ -57,8 +57,9 @@ export const NavItemsBlock = styled.div`
 `;
 
 export const HeaderLogo = styled.div`
-  background: url(/icons/logo.png) center no-repeat;
+  position: relative;
+  background: url('/icons/logo.png') center no-repeat;
   background-size: contain;
-  width: 40px;
-  height: 32px;
+  width: 4rem;
+  height: 3.2rem;
 `;

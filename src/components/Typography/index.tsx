@@ -1,35 +1,101 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { ColorTypes } from '../../styles/_colors';
 
-const Heading1 = styled.h1`
-  font-style: normal;
-  font-weight: 800;
-  font-size: 72px;
-  line-height: 98px;
+interface CommonProps {
+  color?: ColorTypes;
+  align?: 'start' | 'center' | 'end';
+}
+
+const commonCss = css<CommonProps>`
+  ${({ color, theme }) => {
+    return color
+      ? `
+        color: ${theme.colors[color] || color};
+        -webkit-text-fill-color: ${theme.colors[color] || color};
+      `
+      : '';
+  }}
+
+  ${({ align }) => align && `text-align: ${align}`}
 `;
 
-const Heading2 = styled.h2`
+const Heading1 = styled.h1<CommonProps>`
   font-style: normal;
   font-weight: 800;
-  font-size: 48px;
-  line-height: 64px;
+  font-size: 7.2rem;
+  line-height: 9.8rem;
+  ${commonCss}
 `;
 
-const Heading3 = styled.h3`
+const Heading2 = styled.h2<CommonProps>`
   font-style: normal;
   font-weight: 800;
-  font-size: 40px;
-  line-height: 54px;
+  font-size: 4.8rem;
+  line-height: 6.4rem;
+  ${commonCss}
 `;
 
-interface SubTitleProps {
+const Heading3 = styled.h3<CommonProps>`
+  font-style: normal;
+  font-weight: 800;
+  font-size: 4rem;
+  line-height: 5.4rem;
+  ${commonCss}
+`;
+
+interface SubTitleProps extends CommonProps {
   weight?: 'light' | 'bold';
 }
 
 const Subtitle = styled.span<SubTitleProps>`
   font-style: normal;
   font-weight: ${({ weight = 'light' }) => (weight === 'light' ? 500 : 700)};
-  font-size: 18px;
-  line-height: 32px;
+  strong {
+    font-weight: 700;
+  }
+  font-size: 1.8rem;
+  line-height: 3.2rem;
+  ${commonCss}
 `;
 
-export const Typography = { Heading1, Heading2, Heading3, Subtitle };
+const Lead2 = styled.p<CommonProps>`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  strong {
+    font-weight: 700;
+  }
+  ${commonCss}
+`;
+
+type Sizes = 'large' | 'medium' | 'small';
+
+interface LabelProps extends CommonProps {
+  size?: Sizes;
+}
+
+const labelSizes: Record<Sizes, Record<'fontSize' | 'lineHeight', string>> = {
+  large: {
+    fontSize: '2rem',
+    lineHeight: '3rem',
+  },
+  medium: {
+    fontSize: '1.4rem',
+    lineHeight: '2rem',
+  },
+  small: {
+    fontSize: '1.2rem',
+    lineHeight: '1.6rem',
+  },
+};
+
+const Label = styled.label<LabelProps>`
+  font-style: normal;
+  font-weight: 700;
+
+  font-size: ${({ size = 'medium' }) => labelSizes[size].fontSize};
+  line-height: ${({ size = 'medium' }) => labelSizes[size].lineHeight};
+`;
+
+export const Typography = { Heading1, Heading2, Heading3, Subtitle, Lead2, Label };

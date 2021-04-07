@@ -43,7 +43,7 @@ const sizes = {
  *  `}
  * `
  */
-const rwd = Object.keys(sizes).reduce<RWDObject>((acc: RWDObject, label) => {
+export const rwd = Object.keys(sizes).reduce<RWDObject>((acc: RWDObject, label) => {
   acc[label as Breakpoint] = (...args) => css`
     @media (min-width: ${sizes[label as Breakpoint]}) {
       ${css(...args)}

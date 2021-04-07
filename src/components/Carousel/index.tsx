@@ -76,7 +76,7 @@ export const Carousel = () => {
         >
           <div className="layout">
             <div className="buttonContainer">
-              <Button size="large" width="190px">
+              <Button size="large" width="19rem">
                 Subscribe on Instagram
               </Button>
             </div>

@@ -1,8 +1,7 @@
 import React from 'react';
-import Document, { DocumentContext, Html, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, Html, Main, NextScript, Head } from 'next/document';
 import { RenderPageResult } from 'next/dist/next-server/lib/utils';
 import { ServerStyleSheet } from 'styled-components';
-import Head from 'next/head';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<RenderPageResult> {
@@ -35,7 +34,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>{''}</Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

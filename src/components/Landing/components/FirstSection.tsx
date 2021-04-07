@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../../Button';
@@ -38,29 +37,27 @@ const Container = styled.div`
   .leftSide {
     height: 100%;
     flex: 5;
+    padding-left: 16.5rem;
+
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: center;
 
     .content {
-      /* max-width: 540px; */
-      margin-top: 300px;
-      margin-left: 165px;
-
-      h1 {
-        /* margin-bottom: 16px; */
-      }
-
+      /* max-width: 54rem; */
       .subtitle {
-        width: 720px;
-        margin-top: 16px;
+        max-width: 54rem;
+        margin-top: 1.6rem;
       }
       .buttonWrapper {
-        margin-top: 32px;
+        margin-top: 3.2rem;
       }
     }
   }
   .rightSide {
     position: relative;
     height: 100%;
-    flex: 2;
+    flex: 3;
 
     background-color: #18191f;
     background-image: url('/landing/4386464.jpg');

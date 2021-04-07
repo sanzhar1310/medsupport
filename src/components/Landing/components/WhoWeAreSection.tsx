@@ -5,8 +5,12 @@ import { Typography } from '../../Typography';
 const features = [
   {
     image: '/landing/team-unity.jpg',
-    text:
-      'Medsupportkz is a community that unites more than 100 people from different areas of work',
+    text: (
+      <>
+        <strong>Medsupportkz</strong> is a community that unites more than <strong>100</strong>{' '}
+        people from different areas of work
+      </>
+    ),
   },
   {
     image: '/landing/team-professions.jpg',
@@ -15,8 +19,12 @@ const features = [
   },
   {
     image: '',
-    text:
-      'Being so diverse, we are working together towards one goal - raising medical literacy in Central Asia',
+    text: (
+      <>
+        Being so diverse, we are working together towards one goal - raising medical literacy in{' '}
+        <strong>Central Asia</strong>
+      </>
+    ),
   },
 ];
 
@@ -27,7 +35,7 @@ export const WhoWeAreSection = () => {
       <FeatureList>
         {features.map((item, index) => {
           return (
-            <FeatureItem key={index}>
+            <FeatureItem key={index} style={{}}>
               <ImageBlock src={item.image} />
               <Typography.Subtitle>{item.text}</Typography.Subtitle>
             </FeatureItem>
@@ -49,20 +57,20 @@ export const WhoWeAreSection = () => {
 // </TextContentBlock>
 
 const Container = styled.div`
+  z-index: 1;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
-
   align-items: center;
 
   width: 100%;
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
 
-  padding: calc(72px + 65px) 165px;
+  padding: 7.2rem 16.5rem;
 
-  background-color: ${({ theme }) => theme.colors.white};
   .heading {
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -72,16 +80,16 @@ const FeatureList = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 14%;
+  gap: 3rem 3rem;
 `;
 
 const ImageBlock = styled.div<{ src: string }>`
   position: relative;
-  /* width: 540px; */
+  /* width: 54rem; */
   width: 100%;
-  height: 204px;
-  margin-bottom: 8px;
-  border-radius: 4px;
+  aspect-ratio: 3 / 2;
+  margin-bottom: 0.8rem;
+  border-radius: 0.4rem;
 
   background-color: #18191f;
   background-image: url(${({ src }) => src});
@@ -93,8 +101,11 @@ const ImageBlock = styled.div<{ src: string }>`
 
 const FeatureItem = styled.div`
   height: fit-content;
-  width: 255px;
+  min-width: 34rem;
+  max-width: 55rem;
+  flex: 1;
 
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
 `;

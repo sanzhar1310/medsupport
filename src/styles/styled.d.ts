@@ -1,5 +1,5 @@
 import 'styled-components';
-import colors from './_colors';
+import colors, { Colors } from './_colors';
 
 interface ButtonVariantOptions {
   fontColor: string;
@@ -17,7 +17,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     fontPrimary: string;
     transition: string;
-    colors: typeof colors;
+    colors: Colors;
 
     button: {
       variant: Record<'primary' | 'secondary' | 'outline' | 'link', ButtonVariantOptions>;

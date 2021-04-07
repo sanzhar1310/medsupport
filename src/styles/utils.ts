@@ -1,7 +1,7 @@
 /**
  * Converts px unit to rem unit
  * @param px {number} - pixels value to convert to rem value
- * @param base {number} - base font size in px, defaults to browser default 16px
+ * @param base {number} - base font size in px, defaults to browser default 1.6rem
  * @returns {number} rem value
  */
 export const remCalc = (px: number, base: number = 16): number => px / base;

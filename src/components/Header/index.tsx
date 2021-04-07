@@ -10,15 +10,15 @@ export const Header: React.FC = () => {
       <HeaderLogo />
       <Typography.Subtitle weight="bold">MedSupport</Typography.Subtitle>
       <NavItemsBlock>
-        <div className="link">
+        <Typography.Label className="link">
           <Link href="#about">About us</Link>
-        </div>
-        <div className="link">
+        </Typography.Label>
+        <Typography.Label className="link">
           <Link href="#team">Team</Link>
-        </div>
-        <div className="link">
+        </Typography.Label>
+        <Typography.Label className="link">
           <Link href="#partners">Partners</Link>
-        </div>
+        </Typography.Label>
       </NavItemsBlock>
       <SocialBlock>
         <div className="icon">

@@ -7,9 +7,9 @@ const theme: DefaultTheme = {
   colors,
   button: {
     size: {
-      small: { padding: '6px 12px', borderRadius: '6px', fontSize: '12px', lineHeight: '16px' },
-      medium: { padding: '10px 16px', borderRadius: '8px', fontSize: '14px', lineHeight: '20px' },
-      large: { padding: '16px 24px', borderRadius: '8px', fontSize: '20px', lineHeight: '30px' },
+      small: { padding: '.6rem 1.2rem', borderRadius: '.6rem', fontSize: '1.2rem', lineHeight: '1.6rem' },
+      medium: { padding: '1rem 1.6rem', borderRadius: '.8rem', fontSize: '1.4rem', lineHeight: '2rem' },
+      large: { padding: '1.6rem 2.4rem', borderRadius: '.8rem', fontSize: '2rem', lineHeight: '3rem' },
     },
     variant: {
       primary: {

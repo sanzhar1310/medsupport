@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CarouselContainer = styled.div`
   position: relative;
-  height: calc(100vh - 72px);
+  height: calc(100vh - 7.2rem);
   width: 100%;
   overflow: hidden;
 
@@ -47,7 +47,7 @@ export const CarouselContainer = styled.div`
 
   .buttonContainer {
     button {
-      /* box-shadow: 0px 0px 76px 7px ${({ theme }) => theme.colors.primary}; */
+      /* box-shadow: rem rem 7.6rem .7rem ${({ theme }) => theme.colors.primary}; */
     }
   }
 `;
@@ -55,15 +55,15 @@ export const CarouselContainer = styled.div`
 export const ArrowButton = styled.div`
   z-index: 2;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 6rem;
+  height: 6rem;
   cursor: pointer;
   /* background-color: ${({ theme }) => theme.colors.secondary}; */
 
   &.prev {
-    left: 10px;
+    left: 1rem;
   }
   &.next {
-    right: 10px;
+    right: 1rem;
   }
 `;
