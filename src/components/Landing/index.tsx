@@ -3,6 +3,7 @@ import { Header } from '../Header';
 import { AchievementsSection } from './components/AchievementsSection';
 import { FirstSection } from './components/FirstSection';
 import { FoundersSection } from './components/FoundersSection';
+import { PartnersSection } from './components/PartnersSection';
 import { WhatWeDoSection } from './components/WhatWeDoSection';
 import { WhoWeAreSection } from './components/WhoWeAreSection';
 import { LandingContainer } from './styled';
@@ -28,6 +29,7 @@ export const Landing: React.FC = () => {
       <WhatWeDoSection />
       <AchievementsSection />
       <FoundersSection />
+      <PartnersSection />
     </LandingContainer>
   );
 };
