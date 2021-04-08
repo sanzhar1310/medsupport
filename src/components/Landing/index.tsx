@@ -1,7 +1,8 @@
 import React from 'react';
-import { Header } from '../Header';
+import { Header } from './components/Header';
 import { AchievementsSection } from './components/AchievementsSection';
 import { FirstSection } from './components/FirstSection';
+import { Footer } from './components/Footer';
 import { FoundersSection } from './components/FoundersSection';
 import { PartnersSection } from './components/PartnersSection';
 import { WhatWeDoSection } from './components/WhatWeDoSection';
@@ -30,6 +31,7 @@ export const Landing: React.FC = () => {
       <AchievementsSection />
       <FoundersSection />
       <PartnersSection />
+      <Footer />
     </LandingContainer>
   );
 };

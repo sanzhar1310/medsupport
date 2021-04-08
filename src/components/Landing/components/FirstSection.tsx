@@ -8,7 +8,8 @@ export const FirstSection: React.FC = () => {
     <Container>
       <div className="leftSide">
         <div className="content">
-          <Typography.Heading1>PUBLIC HEALTH MEDICINE.</Typography.Heading1>
+          <Typography.Heading1>PUBLIC HEALTH</Typography.Heading1>
+          <Typography.Heading1>MEDICINE</Typography.Heading1>
           <Typography.Heading1>SCIENCE</Typography.Heading1>
           <div className="subtitle">
             <Typography.Subtitle>

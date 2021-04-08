@@ -69,7 +69,8 @@ const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 11rem;
 `;
 
 const FounderList = styled.div`

@@ -8,12 +8,13 @@ interface CommonProps {
 
 const commonCss = css<CommonProps>`
   ${({ color, theme }) => {
-    return color
-      ? `
+    return (
+      color &&
+      `
         color: ${theme.colors[color] || color};
         -webkit-text-fill-color: ${theme.colors[color] || color};
       `
-      : '';
+    );
   }}
 
   ${({ align }) => align && `text-align: ${align}`}
@@ -69,13 +70,11 @@ const Lead2 = styled.p<CommonProps>`
   ${commonCss}
 `;
 
-type Sizes = 'large' | 'medium' | 'small';
-
 interface LabelProps extends CommonProps {
-  size?: Sizes;
+  size?: TextSizes;
 }
 
-const labelSizes: Record<Sizes, Record<'fontSize' | 'lineHeight', string>> = {
+const labelSizes: Record<TextSizes, Record<'fontSize' | 'lineHeight', string>> = {
   large: {
     fontSize: '2rem',
     lineHeight: '3rem',
@@ -96,6 +95,9 @@ const Label = styled.label<LabelProps>`
 
   font-size: ${({ size = 'medium' }) => labelSizes[size].fontSize};
   line-height: ${({ size = 'medium' }) => labelSizes[size].lineHeight};
+  ${commonCss}
 `;
 
 export const Typography = { Heading1, Heading2, Heading3, Subtitle, Lead2, Label };
+
+export type TextSizes = 'large' | 'medium' | 'small';

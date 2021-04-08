@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ColorTypes } from '../../../styles/_colors';
 import { Typography } from '../../Typography';
 
 const steps = [
-  <Typography.Lead2 color="white">
+  <Typography.Subtitle color="white">
     <strong>Medsupportkz</strong> was established in May 2020 amidst the worst time of{' '}
     <strong>COVID-19</strong> pandemic in Kazakhstan. The project includes a team of 100 volunteers:
     scientists, medical workers and experienced translators. The official communication on{' '}
@@ -11,7 +12,7 @@ const steps = [
     latest scientific advancements and medical practices in Kazakhstan. Medical workers, in turn,
     were more than ever frustrated and burned out due to both poor working conditions and a lack of
     systematic support.
-  </Typography.Lead2>,
+  </Typography.Subtitle>,
   <Typography.Lead2>
     The <strong>COVID-19</strong> pandemic has exposed many healthcare and health literacy problems
     among people of Kazakhstan. With the start of the epidemic in Kazakhstan, the social media got
@@ -25,7 +26,7 @@ const steps = [
     <strong>Medsupport</strong> became a bridge between trusted scientific information and local
     medical workers who do not have time or sufficient level of English. Platform provides
     scientifically reliable information, studies and guidelines about <strong>Covid-19</strong> in
-    Kazakh and Russian translated and adapted from English.
+    Central Asia and Russian translated and adapted from English.
   </Typography.Lead2>,
 ];
 
@@ -37,9 +38,9 @@ export const WhatWeDoSection = () => {
         <img src="/landing/question-pills.jpg" width={445} height={525} />
       </div>
       <div className="stepContainer">
-        <StepItem primary>{steps[0]}</StepItem>
-        <StepItem>{steps[1]}</StepItem>
-        <StepItem>{steps[2]}</StepItem>
+        <StepItem color="primary">{steps[0]}</StepItem>
+        <StepItem color="secondary">{steps[1]}</StepItem>
+        <StepItem color="white">{steps[2]}</StepItem>
       </div>
     </Container>
   );
@@ -59,7 +60,6 @@ const Container = styled.div`
   align-content: space-evenly;
   /* align-items: space-evenly; */
   gap: 3rem;
-
 
   .titleContainer {
     height: 100%;
@@ -93,9 +93,9 @@ const Container = styled.div`
 `;
 /* ${rwd.} */
 
-const StepItem = styled.div<{ primary?: boolean }>`
+const StepItem = styled.div<{ color?: ColorTypes }>`
   padding: 4.8rem 8rem;
-  background: ${({ primary, theme }) => (primary ? theme.colors.primary : theme.colors.secondary)};
+  background: ${({ color, theme }) => (color ? theme.colors[color] : '')};
   height: fit-content;
   width: 100%;
 `;

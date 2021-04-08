@@ -26,7 +26,7 @@ export const AchievementsSection = () => {
           </Typography.Subtitle>
         </Count>
         <Count>
-          <Typography.Heading2>+29,000</Typography.Heading2>
+          <Typography.Heading2>+30,000</Typography.Heading2>
           <Typography.Subtitle align="center">followers in social media</Typography.Subtitle>
         </Count>
         <Count>
