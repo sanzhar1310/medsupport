@@ -1,5 +1,6 @@
 import { css, createGlobalStyle } from 'styled-components';
 import fontFaces from './fonts';
+import rwd from './rwd';
 
 const resetCss = css`
   html,
@@ -184,7 +185,21 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.fontPrimary};
   }
   html, body {
-    font-size: 62.5%;
+    ${rwd.PHONE(css`
+      font-size: 30.5%;
+    `)}
+
+    ${rwd.TABLET(css`
+      font-size: 46.5%;
+    `)}
+
+    ${rwd.DESKTOP(css`
+      font-size: 55.5%;
+    `)}
+
+    ${rwd.XLARGE(css`
+      font-size: 62.5%;
+    `)}
   }
 `;
 

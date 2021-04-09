@@ -14,6 +14,18 @@ export const Landing: React.FC = () => {
     <LandingContainer>
       <Header />
       <FirstSection />
+      <div style={{ position: 'relative', overflow: 'visible', zIndex: 0 }}>
+        <span
+          style={{
+            height: '50vh',
+            width: '100%',
+            position: 'absolute',
+            left: '0',
+            top: '-15vh',
+            background: '#F4F5F7',
+          }}
+        />
+      </div>
       <WhoWeAreSection />
       <div style={{ position: 'relative', overflow: 'visible', zIndex: 0 }}>
         <span

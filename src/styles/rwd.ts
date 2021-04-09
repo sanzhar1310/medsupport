@@ -1,35 +1,27 @@
-import styled, {
-  css,
-  CSSObject,
-  SimpleInterpolation,
-  FlattenSimpleInterpolation,
-} from 'styled-components';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import { remCalc } from './utils';
 
 export enum Breakpoint {
-  SMALL = 'SMALL',
-  MEDIUM = 'MEDIUM',
-  LARGE = 'LARGE',
+  PHONE = 'PHONE',
+  TABLET = 'TABLET',
+  DESKTOP = 'DESKTOP',
   XLARGE = 'XLARGE',
 }
 
-type RWDFunction = (
-  arg: CSSObject | TemplateStringsArray,
-  ...interpolations: SimpleInterpolation[]
-) => FlattenSimpleInterpolation;
+type RWDFunction = (arg: FlattenSimpleInterpolation) => FlattenSimpleInterpolation;
 
 export interface RWDObject {
-  [Breakpoint.SMALL]: RWDFunction;
-  [Breakpoint.MEDIUM]: RWDFunction;
-  [Breakpoint.LARGE]: RWDFunction;
+  [Breakpoint.PHONE]: RWDFunction;
+  [Breakpoint.TABLET]: RWDFunction;
+  [Breakpoint.DESKTOP]: RWDFunction;
   [Breakpoint.XLARGE]: RWDFunction;
 }
 
 const sizes = {
-  [Breakpoint.SMALL]: `${remCalc(576)}em`,
-  [Breakpoint.MEDIUM]: `${remCalc(768)}em`,
-  [Breakpoint.LARGE]: `${remCalc(1024)}em`,
-  [Breakpoint.XLARGE]: `${remCalc(1280)}em`,
+  [Breakpoint.PHONE]: `${remCalc(360)}em`,
+  [Breakpoint.TABLET]: `${remCalc(768)}em`,
+  [Breakpoint.DESKTOP]: `${remCalc(1024)}em`,
+  [Breakpoint.XLARGE]: `${remCalc(1440)}em`,
 };
 
 /**
@@ -44,9 +36,9 @@ const sizes = {
  * `
  */
 export const rwd = Object.keys(sizes).reduce<RWDObject>((acc: RWDObject, label) => {
-  acc[label as Breakpoint] = (...args) => css`
+  acc[label as Breakpoint] = (argCss: FlattenSimpleInterpolation) => css`
     @media (min-width: ${sizes[label as Breakpoint]}) {
-      ${css(...args)}
+      ${argCss}
     }
   `;
 
@@ -64,17 +56,17 @@ export const DisplayOnBreakpoint = styled.div<DisplayOnBreakpointProps>`
     props.down &&
     css`
       display: block;
-      ${rwd[props.breakpoint]`
+      ${rwd[props.breakpoint](css`
         display: none;
-      `}
+      `)}
     `}
   ${(props) =>
     props.up &&
     css`
       display: none;
-      ${rwd[props.breakpoint]`
+      ${rwd[props.breakpoint](css`
         display: block;
-      `}
+      `)}
     `}
 `;
 

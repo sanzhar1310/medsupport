@@ -35,7 +35,7 @@ export const WhoWeAreSection = () => {
       <FeatureList>
         {features.map((item, index) => {
           return (
-            <FeatureItem key={index} style={{}}>
+            <FeatureItem key={index}>
               <ImageBlock src={item.image} />
               <Typography.Subtitle>{item.text}</Typography.Subtitle>
             </FeatureItem>
@@ -65,7 +65,6 @@ const Container = styled.div`
 
   width: 100%;
   height: fit-content;
-  min-height: 100vh;
 
   padding: 7.2rem 16.5rem;
 

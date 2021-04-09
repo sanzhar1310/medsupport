@@ -20,13 +20,19 @@ export const Footer = () => {
         <Typography.Lead2 color="white">© 2021 Medsupport. All Rights Reserved.</Typography.Lead2>
         <SocialBlock>
           <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
-            <Image src="/icons/social/instagram-white.svg" width={32} height={32} />
+            <SocialLogoContainer>
+              <Image src="/icons/social/instagram-white.svg" layout="fill" />
+            </SocialLogoContainer>
           </a>
           <a className="icon" href="https://www.facebook.com/medsupportkz" target="__blank">
-            <Image src="/icons/social/facebook-white.svg" width={32} height={32} />
+            <SocialLogoContainer>
+              <Image src="/icons/social/facebook-white.svg" layout="fill" />
+            </SocialLogoContainer>
           </a>
           <a className="icon" href="https://t.me/medsupportkz" target="__blank">
-            <Image src="/icons/social/telegram-white.svg" width={32} height={32} />
+            <SocialLogoContainer>
+              <Image src="/icons/social/telegram-white.svg" layout="fill" />
+            </SocialLogoContainer>
           </a>
         </SocialBlock>
       </div>
@@ -88,4 +94,10 @@ const SocialBlock = styled.div`
       margin-right: 0;
     }
   }
+`;
+
+const SocialLogoContainer = styled.div`
+  width: 3.2rem;
+  height: 3.2rem;
+  position: relative;
 `;

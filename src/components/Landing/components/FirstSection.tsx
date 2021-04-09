@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../styles/rwd';
 import { Button } from '../../Button';
 import { Typography } from '../../Typography';
 
@@ -8,9 +9,13 @@ export const FirstSection: React.FC = () => {
     <Container>
       <div className="leftSide">
         <div className="content">
-          <Typography.Heading1>PUBLIC HEALTH</Typography.Heading1>
-          <Typography.Heading1>MEDICINE</Typography.Heading1>
-          <Typography.Heading1>SCIENCE</Typography.Heading1>
+          <Typography.Heading1>
+            PUBLIC HEALTH
+            <br />
+            MEDICINE
+            <br />
+            SCIENCE
+          </Typography.Heading1>
           <div className="subtitle">
             <Typography.Subtitle>
               Community of scientists and medical workers promoting science and empirical thinking
@@ -18,7 +23,9 @@ export const FirstSection: React.FC = () => {
             </Typography.Subtitle>
           </div>
           <div className="buttonWrapper">
-            <Button size="large">Subscribe on Instagram</Button>
+            <Button size="large">
+              <Typography.Label>Subscribe on Instagram</Typography.Label>
+            </Button>
           </div>
         </div>
       </div>
@@ -28,17 +35,21 @@ export const FirstSection: React.FC = () => {
 };
 
 const Container = styled.div`
+  z-index: 1;
   width: 100%;
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
   background-color: white;
 
   display: flex;
   flex-flow: row nowrap;
 
   .leftSide {
-    height: 100%;
+    min-height: 100vh;
     flex: 5;
     padding-left: 16.5rem;
+    padding-right: 6.5rem;
+    padding-top: 7.2rem;
 
     display: flex;
     /* justify-content: flex-end; */
@@ -47,7 +58,7 @@ const Container = styled.div`
     .content {
       /* max-width: 54rem; */
       .subtitle {
-        max-width: 54rem;
+        max-width: 54rem;x
         margin-top: 1.6rem;
       }
       .buttonWrapper {
@@ -57,7 +68,7 @@ const Container = styled.div`
   }
   .rightSide {
     position: relative;
-    height: 100%;
+    height: 100vh;
     flex: 3;
 
     background-color: #18191f;
@@ -66,4 +77,69 @@ const Container = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  ${rwd['PHONE'](css`
+    flex-flow: column-reverse nowrap;
+    justify-content: flex-end;
+    .rightSide {
+      height: 35vh;
+      flex: unset;
+      /* flex-flow: row nowrap;
+      display: none; */
+    }
+
+    .leftSide {
+      min-height: unset;
+      height: fit-content;
+      flex: unset;
+      padding: 0;
+      padding-top: 14.5rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* background: red; */
+  `)}
+
+  ${rwd['TABLET'](css`
+    flex-flow: column-reverse nowrap;
+    justify-content: flex-end;
+    min-height: 100vh;
+    .rightSide {
+      height: 40vh;
+      flex: unset;
+      /* flex-flow: row nowrap;
+      display: none; */
+    }
+
+    .leftSide {
+      height: fit-content;
+      flex: unset;
+      padding: 0;
+      padding-top: 14.5rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* background: red; */
+  `)}
+
+  ${rwd['DESKTOP'](css`
+    flex-flow: row nowrap;
+    .rightSide {
+      height: 100vh;
+      flex: 3;
+      /* flex-flow: row nowrap;
+      display: none; */
+    }
+    .leftSide {
+      min-height: 100vh;
+      justify-content: unset;
+      align-items: center;
+      flex: 5;
+      padding-left: 16.5rem;
+      padding-right: 6.5rem;
+      padding-top: 7.2rem;
+    }
+  `)}
 `;

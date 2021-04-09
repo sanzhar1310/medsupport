@@ -10,27 +10,28 @@ interface Founder {
 
 const founders: Founder[] = [
   {
-    photo: '',
+    photo:
+      'https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1344/FSH-CHN-1583918073239-unknown.jpeg',
     title: 'Dinara Uskenbayeva',
     description: '',
   },
   {
-    photo: '',
+    photo: 'https://r.mt.ru/r1/photoF2CE/20709645488-0/jpeg/bp.webp',
     title: 'Bota Kaukenova, MD',
     description: '',
   },
   {
-    photo: '',
+    photo: 'https://r3.mt.ru/r5/photoFB27/20546758507-0/jpeg/bp.webp',
     title: 'Akmaral Tursunova',
     description: '',
   },
   {
-    photo: '',
+    photo: 'https://r3.mt.ru/r4/photoE1DD/20554414148-0/jpeg/bp.webp',
     title: 'Dana Akilbekova, PhD',
     description: '',
   },
   {
-    photo: '',
+    photo: 'https://r2.mt.ru/r4/photoB58D/20161857937-0/jpeg/bp.webp',
     title: 'Tomiris Mulikova',
     description: '',
   },
@@ -92,6 +93,7 @@ const FounderContainer = styled.div`
     height: 60rem;
     margin-bottom: 2.5rem;
     aspect-ratio: 2 / 3;
+    border-radius: 0.8rem;
   }
 
   .title {

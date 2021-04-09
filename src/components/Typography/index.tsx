@@ -31,7 +31,7 @@ const Heading1 = styled.h1<CommonProps>`
 const Heading2 = styled.h2<CommonProps>`
   font-style: normal;
   font-weight: 800;
-  font-size: 4.8rem;
+  font-size: 5rem;
   line-height: 6.4rem;
   ${commonCss}
 `;
