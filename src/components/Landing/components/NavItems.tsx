@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../styles/rwd';
 import { ColorTypes } from '../../../styles/_colors';
 import { Typography, TextSizes } from '../../Typography';
+// import { useRouter } from 'next/router';
 
 interface Props {
   color?: ColorTypes;
@@ -10,33 +12,48 @@ interface Props {
 }
 
 export const NavItems: React.FC<Props> = ({ color, textSize }) => {
+  // const router = useRouter();
+
   return (
     <NavItemsBlock>
-      <Typography.Label className="link" color={color} size={textSize}>
-        <Link href="#about">About us</Link>
-      </Typography.Label>
-      <Typography.Label className="link" color={color} size={textSize}>
-        <Link href="#team">Team</Link>
-      </Typography.Label>
-      <Typography.Label className="link" color={color} size={textSize}>
-        <Link href="#partners">Partners</Link>
-      </Typography.Label>
+      <Link href="#about">
+        <Typography.Label className="link" color={color} size={textSize}>
+          About us
+        </Typography.Label>
+      </Link>
+      <Link href="#team">
+        <Typography.Label className="link" color={color} size={textSize}>
+          Team
+        </Typography.Label>
+      </Link>
+      <Link href="#partners">
+        <Typography.Label className="link" color={color} size={textSize}>
+          Partners
+        </Typography.Label>
+      </Link>
     </NavItemsBlock>
   );
 };
 
 const NavItemsBlock = styled.div`
-  font-weight: 700;
+  height: 100%;
   display: flex;
   flex-flow: row nowrap;
+  display: none;
+  ${rwd.DESKTOP(css`
+    display: flex;
+  `)}
   .link {
-    a {
-      color: inherit;
-      text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
 
-      :hover {
-        color: ${({ theme }) => theme.colors.primary};
-      }
+    :hover {
+      color: ${({ theme }) => theme.colors.primary};
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.primary};
     }
     margin-right: 3.2rem;
     :last-child {

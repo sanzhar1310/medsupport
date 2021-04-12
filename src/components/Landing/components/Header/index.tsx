@@ -4,6 +4,7 @@ import { HeaderContainer, SocialBlock } from './styled';
 import { Typography } from '../../../Typography';
 import { Logo } from '../Logo';
 import { NavItems } from '../NavItems';
+import { NavBar } from './NavBar';
 
 export const Header: React.FC = () => {
   const headerRef = useRef<HTMLElement>(null);
@@ -32,10 +33,11 @@ export const Header: React.FC = () => {
 
   return (
     <HeaderContainer ref={headerRef}>
+      <NavBar />
       <Logo />
-      <Typography.Subtitle weight="bold">MedSupport</Typography.Subtitle>
+      <Typography.Subtitle weight="bold" className="logoLabel">MedSupport</Typography.Subtitle>
       <NavItems />
-      <SocialBlock>
+      <SocialBlock className="socialBlock">
         <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
           <Image src="/icons/social/instagram.svg" width={32} height={32} />
         </a>

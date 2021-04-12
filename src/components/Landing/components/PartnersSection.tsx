@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
 
 const partners = [
@@ -60,15 +61,17 @@ export const PartnersSection = () => {
 const Container = styled.div`
   width: 100%;
   height: fit-content;
-
-  padding: 7.2rem 16.5rem;
-
+  padding: 7.2rem 3.2rem 0;
   display: flex;
   flex-flow: column nowrap;
 
   .heading {
     margin-bottom: 4rem;
   }
+
+  ${rwd.TABLET(css`
+    padding: 7.2rem 16.5rem;
+  `)}
 `;
 
 const Divider = styled.span`

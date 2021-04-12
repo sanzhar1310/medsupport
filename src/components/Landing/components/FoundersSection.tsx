@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
 
 interface Founder {
@@ -65,25 +66,32 @@ const FounderItem: React.FC<{ founder: Founder }> = ({ founder }) => (
 const Container = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 7.2rem 16.5rem;
 
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: 11rem;
+  gap: 7rem;
+  padding-top: 7.2rem;
 `;
 
 const FounderList = styled.div`
   display: flex;
   flex-flow: column nowrap;
   gap: 8rem;
+
+  h2 {
+    text-align: center;
+
+    ${rwd.TABLET(css`
+      text-align: start;
+    `)}
+  }
 `;
 
 const FounderContainer = styled.div`
   width: 100%;
   max-width: 60rem;
-  min-width: 25rem;
   height: fit-content;
 
   display: flex;
@@ -99,5 +107,10 @@ const FounderContainer = styled.div`
   .title {
     width: 100%;
     margin-bottom: 0.8rem;
+    text-align: center;
+
+    ${rwd.TABLET(css`
+      text-align: start;
+    `)}
   }
 `;

@@ -53,7 +53,7 @@ export const WhatWeDoSection = () => {
 };
 
 const Container = styled.div`
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: fit-content;
 
@@ -65,7 +65,7 @@ const Container = styled.div`
 
   .heading {
     width: 100%;
-    margin-bottom: 2.5rem;
+    margin-bottom: 4rem;
   }
   .titleContainer {
     height: 100%;
@@ -110,7 +110,6 @@ const Container = styled.div`
       flex-flow: column nowrap;
       align-items: center;
       padding: 7.2rem 16.5rem;
-      /* padding: 7.2rem 0; */
       .titleContainer {
         img {
           display: none;
@@ -129,7 +128,7 @@ const Container = styled.div`
       flex-flow: column nowrap;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 7.2rem 16.5rem;
+      /* padding: 7.2rem 16.5rem; */
       .titleContainer {
         img {
           display: block;
@@ -170,5 +169,10 @@ const TextCard = styled.div`
   /* ${rwd.PHONE(css``)} */
   ${rwd.TABLET(css`
     border-radius: 1rem;
-  `)}/* ${rwd.DESKTOP(css``)} */
+  `)}
+  ${rwd.XLARGE(css`
+    max-width: 122rem;
+  `)}
+
+
 `;

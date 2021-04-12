@@ -186,7 +186,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html, body {
     ${rwd.PHONE(css`
-      font-size: 30.5%;
+      font-size: 38%;
     `)}
 
     ${rwd.TABLET(css`

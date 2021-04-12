@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
 
 export const AchievementsSection = () => {
@@ -45,12 +46,11 @@ const Container = styled.div`
 
   width: 100%;
   height: fit-content;
+  padding: 7.2rem 0;
 
   display: flex;
   flex-flow: column nowrap;
-
-  padding: 7.2rem 16.5rem;
-
+  align-items: center;
   .heading {
     z-index: 1;
     margin-bottom: 0.8rem;
@@ -60,6 +60,11 @@ const Container = styled.div`
     z-index: 1;
     margin-bottom: 3.2rem;
   }
+
+  ${rwd.DESKTOP(css`
+    align-items: flex-start;
+    padding: 7.2rem 16.5rem;
+  `)}
 `;
 
 const Background = styled.span`

@@ -1,30 +1,39 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../../styles/rwd';
 
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 7.2rem;
 
-  z-index: 2;
+  overflow: visible;
+
+  z-index: 3;
   position: fixed;
   top: 0;
-
-  padding: 0 16.5rem;
 
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
 
-  span {
+  .logoLabel {
     margin-left: 1.6rem;
-    margin-right: 10%;
+    margin-right: 1.6rem;
+
+    ${rwd.DESKTOP(css`
+      margin-right: 10%;
+    `)}
   }
 
   &.color {
     background-color: ${({ theme }) => theme.colors.white};
-    box-shadow: rem 0.1rem rem #e5e9f2;
+    box-shadow: 0.1rem 0.1rem 0.1rem #e5e9f2;
   }
 
-  transition: 500ms background-color ease;
+  transition: 500ms all ease;
+
+  ${rwd.DESKTOP(css`
+    padding: 0 16.5rem;
+  `)}
 `;
 
 export const SocialBlock = styled.div`
@@ -38,4 +47,10 @@ export const SocialBlock = styled.div`
       margin-right: 0;
     }
   }
+
+  display: none;
+
+  ${rwd.DESKTOP(css`
+    display: initial;
+  `)}
 `;

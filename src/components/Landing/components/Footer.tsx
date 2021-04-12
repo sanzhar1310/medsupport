@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
 import { Logo } from './Logo';
 import { NavItems } from './NavItems';
@@ -43,7 +44,7 @@ export const Footer = () => {
 const Container = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 4.8rem 16.5rem 7.2rem;
+  padding: 4.8rem 3.2rem 7.2rem;
 
   display: flex;
   flex-flow: column;
@@ -55,11 +56,13 @@ const Container = styled.div`
     width: fit-content;
     display: flex;
 
-    margin-bottom: 3.2rem;
-
     span {
       margin-left: 1.6rem;
     }
+
+    ${rwd.DESKTOP(css`
+      margin-bottom: 3.2rem;
+    `)}
   }
 
   .extrasContainer {
@@ -68,6 +71,11 @@ const Container = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
   }
+
+  ${rwd.TABLET(css`
+    padding-right: 16.5rem;
+    padding-left: 16.5rem;
+  `)}
 `;
 
 const Divider = styled.span`
