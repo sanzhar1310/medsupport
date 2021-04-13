@@ -19,7 +19,7 @@ export const Footer = () => {
       <Divider />
       <div className="extrasContainer">
         <Typography.Lead2 color="white">© 2021 Medsupport. All Rights Reserved.</Typography.Lead2>
-        <SocialBlock>
+        <SocialBlock className="alwaysShow">
           <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
             <SocialLogoContainer>
               <Image src="/icons/social/instagram-white.svg" layout="fill" />
@@ -70,6 +70,7 @@ const Container = styled.div`
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
   }
 
   ${rwd.TABLET(css`

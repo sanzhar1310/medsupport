@@ -9,9 +9,9 @@ export const LandingContainer = styled.div`
 
   display: flex;
   flex-flow: column nowrap;
-  scroll-snap-type: mandatory;
+  /* scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(3rem);
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory; */
   .section {
     scroll-snap-align: start;
   }

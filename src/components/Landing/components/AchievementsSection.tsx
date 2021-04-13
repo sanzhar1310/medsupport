@@ -69,11 +69,17 @@ const Container = styled.div`
 
 const Background = styled.span`
   position: absolute;
-  top: 0;
+  top: 7.2rem;
   left: 0;
   width: 100%;
-  height: 35rem;
   background: ${({ theme }) => theme.colors.primary};
+
+  ${rwd.PHONE(css`
+    height: 40rem;
+  `)}
+  ${rwd.TABLET(css`
+    height: 35rem;
+  `)}
 `;
 
 const Counts = styled.div`

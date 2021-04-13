@@ -61,7 +61,7 @@ export const PartnersSection = () => {
 const Container = styled.div`
   width: 100%;
   height: fit-content;
-  padding: 7.2rem 3.2rem 0;
+  padding: 7.2rem 3.2rem;
   display: flex;
   flex-flow: column nowrap;
 

@@ -1,8 +1,11 @@
-import { motion, useCycle } from 'framer-motion';
+import { motion, SVGMotionProps, useCycle } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { useRef } from 'react';
 import styled, { css } from 'styled-components';
 import { useDimensions } from '../../../../hooks/useDimensionst';
 import rwd from '../../../../styles/rwd';
+import { Typography } from '../../../Typography';
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -27,14 +30,15 @@ const sidebar = {
 const StyledMotionNav = styled(motion.nav)`
   position: relative;
   height: 100%;
-  width: 30rem;
+  width: 35rem;
   margin-right: auto;
+  z-index: 1;
   .background {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 30rem;
+    width: 35rem;
     height: 100vh;
     background: #fff;
   }
@@ -111,26 +115,36 @@ const StyledMotionNav = styled(motion.nav)`
   `)}
 `;
 
+const ToggleLayout = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+`;
+
 export const NavBar = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef<HTMLElement>(null);
   const { height } = useDimensions(containerRef);
 
   return (
-    <StyledMotionNav
-      initial={false}
-      animate={isOpen ? 'open' : 'closed'}
-      custom={height}
-      ref={containerRef}
-    >
-      <motion.div className="background" variants={sidebar} />
-      <Navigation />
-      <MenuToggle toggle={() => toggleOpen()} />
-    </StyledMotionNav>
+    <>
+      <StyledMotionNav
+        initial={false}
+        animate={isOpen ? 'open' : 'closed'}
+        custom={height}
+        ref={containerRef}
+      >
+        <motion.div className="background" variants={sidebar} />
+        <Navigation />
+        <MenuToggle toggle={() => toggleOpen()} />
+      </StyledMotionNav>
+      {isOpen && <ToggleLayout style={{}} onClick={() => toggleOpen()} />}
+    </>
   );
 };
 
-const itemIds = [0, 1, 2, 3, 4];
 const navigationVariants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
@@ -140,12 +154,58 @@ const navigationVariants = {
   },
 };
 
+const SocialLinkWrap = styled.a`
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+`;
+
 const Navigation = () => {
   return (
     <motion.ul variants={navigationVariants}>
-      {itemIds.map((i) => (
-        <MenuItem i={i} key={i} />
-      ))}
+      <MenuItem>
+        <Link href="#about">
+          <Typography.Subtitle className="link">About us</Typography.Subtitle>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href="#team">
+          <Typography.Subtitle className="link">Team</Typography.Subtitle>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href="#partners">
+          <Typography.Subtitle className="link">Partners</Typography.Subtitle>
+        </Link>
+      </MenuItem>
+      <MenuItem />
+      <MenuItem />
+      <MenuItem />
+      <MenuItem>
+        <SocialLinkWrap href="https://www.instagram.com/medsupportkz/" target="__blank">
+          <div className="icon-placeholder">
+            <Image src="/icons/social/instagram.svg" width={32} height={32} />
+          </div>
+          <Typography.Subtitle>Instagram</Typography.Subtitle>
+        </SocialLinkWrap>
+      </MenuItem>
+      <MenuItem>
+        <SocialLinkWrap href="https://www.facebook.com/medsupportkz" target="__blank">
+          <div className="icon-placeholder">
+            <Image src="/icons/social/facebook.svg" width={32} height={32} />
+          </div>
+          <Typography.Subtitle>Facebook</Typography.Subtitle>
+        </SocialLinkWrap>
+      </MenuItem>
+      <MenuItem>
+        <SocialLinkWrap href="https://t.me/medsupportkz" target="__blank">
+          <div className="icon-placeholder">
+            <Image src="/icons/social/telegram.svg" width={32} height={32} />
+          </div>
+          <Typography.Subtitle>Telegram</Typography.Subtitle>
+        </SocialLinkWrap>
+      </MenuItem>
     </motion.ul>
   );
 };
@@ -167,19 +227,20 @@ const variants = {
   },
 };
 
-const colors = ['#FF008C', '#D309E1', '#9C1AFF', '#7700FF', '#4400FF'];
+const StyledListItem = styled(motion.li)`
+  display: flex;
+  align-items: center;
+`;
 
-const MenuItem: React.FC<{ i: number }> = ({ i }) => {
-  const style = { border: `0.2rem solid ${colors[i]}` };
+const MenuItem: React.FC = ({ children }) => {
   return (
-    <motion.li variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-      <div className="icon-placeholder" style={style} />
-      <div className="text-placeholder" style={style} />
-    </motion.li>
+    <StyledListItem variants={variants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+      {children}
+    </StyledListItem>
   );
 };
 
-const Path = (props) => (
+const Path: React.FC<SVGMotionProps<SVGPathElement>> = (props) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
@@ -189,7 +250,7 @@ const Path = (props) => (
   />
 );
 
-const MenuToggle = ({ toggle }) => (
+const MenuToggle: React.FC<{ toggle: () => void }> = ({ toggle }) => (
   <button onClick={toggle}>
     <svg width="2.3rem" height="2.3rem" viewBox="0 0 23 23">
       <Path

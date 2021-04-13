@@ -18,7 +18,7 @@ export interface RWDObject {
 }
 
 const sizes = {
-  [Breakpoint.PHONE]: `${remCalc(360)}em`,
+  [Breakpoint.PHONE]: `${remCalc(320)}em`,
   [Breakpoint.TABLET]: `${remCalc(768)}em`,
   [Breakpoint.DESKTOP]: `${remCalc(1024)}em`,
   [Breakpoint.XLARGE]: `${remCalc(1440)}em`,

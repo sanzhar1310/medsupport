@@ -1,3 +1,4 @@
+import { useViewportScroll } from 'framer-motion';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
@@ -5,6 +6,9 @@ import { Button } from '../../Button';
 import { Typography } from '../../Typography';
 
 export const FirstSection: React.FC = () => {
+  const { scrollY } = useViewportScroll();
+
+
   return (
     <Container className="section">
       <div className="leftSide">
@@ -58,7 +62,7 @@ const Container = styled.div`
     .content {
       /* max-width: 54rem; */
       .subtitle {
-        max-width: 54rem;x
+        max-width: 54rem;
         margin-top: 1.6rem;
       }
       .buttonWrapper {

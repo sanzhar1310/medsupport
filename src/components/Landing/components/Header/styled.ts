@@ -50,7 +50,11 @@ export const SocialBlock = styled.div`
 
   display: none;
 
+  .alwaysShow {
+    display: flex !important;
+
+  }
   ${rwd.DESKTOP(css`
-    display: initial;
+    display: flex;
   `)}
 `;

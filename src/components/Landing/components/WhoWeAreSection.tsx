@@ -80,7 +80,6 @@ const FeatureList = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 3rem 3rem;
 `;
 
 const ImageBlock = styled.div<{ src: string }>`
@@ -108,4 +107,6 @@ const FeatureItem = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+
+  padding: 1.5rem;
 `;
