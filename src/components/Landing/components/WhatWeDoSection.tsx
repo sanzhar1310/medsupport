@@ -7,28 +7,30 @@ import { Typography } from '../../Typography';
 const steps = [
   <Typography.Subtitle color="white">
     <strong>Medsupportkz</strong> was established in May 2020 amidst the worst time of{' '}
-    <strong>COVID-19</strong> pandemic in Kazakhstan. The project includes a team of 100 volunteers:
-    scientists, medical workers and experienced translators. The official communication on{' '}
-    <strong>COVID-19</strong> was often inadequate and late; there was a lack of information on the
-    latest scientific advancements and medical practices in Kazakhstan. Medical workers, in turn,
-    were more than ever frustrated and burned out due to both poor working conditions and a lack of
-    systematic support.
+    <strong>COVID-19</strong> pandemic in Central Asia. The project includes a team of 100
+    volunteers: scientists, medical workers and experienced translators. The official communication
+    on <strong>COVID-19</strong> was often inadequate and late; there was a lack of information on
+    the latest scientific advancements and medical practices in Central Asia. Medical workers, in
+    turn, were more than ever frustrated and burned out due to both poor working conditions and a
+    lack of systematic support.
   </Typography.Subtitle>,
   <Typography.Subtitle>
     The <strong>COVID-19</strong> pandemic has exposed many healthcare and health literacy problems
-    among people of Kazakhstan. With the start of the epidemic in Kazakhstan, the social media got
-    clattered with fake information, which was widely spread among the population. Insufficient and
-    inefficient communication between scientists with medical workers and decision-makers causes
+    among people of Central Asia. With the start of the epidemic in Central Asia, the social media
+    got clattered with fake information, which was widely spread among the population. Insufficient
+    and inefficient communication between scientists with medical workers and decision-makers causes
     panic and spread of fake information as well as lowers public trust in science among the
     population. Thus, people distrust all health authorities, be it the Ministry of Health, WHO, or
     UNICEF, and prefer to get treated by folk medicine specialists.
   </Typography.Subtitle>,
-  <Typography.Subtitle>
-    <strong>Medsupport</strong> became a bridge between trusted scientific information and local
-    medical workers who do not have time or sufficient level of English. Platform provides
-    scientifically reliable information, studies and guidelines about <strong>Covid-19</strong> in
-    Central Asia and Russian translated and adapted from English.
-  </Typography.Subtitle>,
+  <Typography.Heading6>
+    <strong>
+      Medsupport became a bridge between trusted scientific information and local medical workers
+      who do not have time or sufficient level of English. Platform provides scientifically reliable
+      information, studies and guidelines about Covid-19 in Kazakh and Russian translated and
+      adapted from English.
+    </strong>
+  </Typography.Heading6>,
 ];
 
 export const WhatWeDoSection = () => {
@@ -43,7 +45,7 @@ export const WhatWeDoSection = () => {
       <div className="stepContainer">
         <TextCard className="primaryColor">{steps[0]}</TextCard>
         <TextCard className="secondaryColor">{steps[1]}</TextCard>
-        <TextCard>{steps[2]}</TextCard>
+        <TextCard className="last">{steps[2]}</TextCard>
         {/* <StepItem color="primary">{steps[0]}</StepItem> */}
         {/* <StepItem color="secondary">{steps[1]}</StepItem> */}
       </div>
@@ -82,11 +84,20 @@ const Container = styled.div`
 
   .stepContainer {
     width: 100%;
-
+    text-align: center;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     /* background: ${({ theme }) => theme.colors.secondary}; */
+
+    .last {
+      padding-top: 6rem;
+      strong {
+        font-weight: 800;
+      }
+      /* font-weight: 800; */
+      /* max-width: none; */
+    }
   }
 
   ${rwd.PHONE(
@@ -110,7 +121,7 @@ const Container = styled.div`
       min-height: unset;
       flex-flow: column nowrap;
       align-items: center;
-      padding: 7.2rem 16.5rem;
+      padding: 7.2rem 0;
       padding-top: calc(7.2rem + 6.4rem);
       .titleContainer {
         img {
@@ -158,8 +169,7 @@ const StepItem = styled.div<{ color?: ColorTypes }>`
 `;
 
 const TextCard = styled.div`
-  /* max-width: 90rem; */
-  padding: 1.6rem 3.2rem 3.2rem;
+  padding: 3.2rem;
   &.primaryColor {
     background: ${({ theme }) => theme.colors.primary};
   }
@@ -171,8 +181,9 @@ const TextCard = styled.div`
   /* ${rwd.PHONE(css``)} */
   ${rwd.TABLET(css`
     border-radius: 1rem;
+    max-width: 109rem;
   `)}
   ${rwd.XLARGE(css`
-    max-width: 122rem;
+    /* max-width: 122rem; */
   `)}
 `;

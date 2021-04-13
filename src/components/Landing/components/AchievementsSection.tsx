@@ -27,7 +27,7 @@ export const AchievementsSection = () => {
           </Typography.Subtitle>
         </Count>
         <Count>
-          <Typography.Heading2>+30,000</Typography.Heading2>
+          <Typography.Heading2>+34,000</Typography.Heading2>
           <Typography.Subtitle align="center">followers in social media</Typography.Subtitle>
         </Count>
         <Count>
@@ -73,6 +73,7 @@ const Background = styled.span`
   left: 0;
   width: 100%;
   background: ${({ theme }) => theme.colors.primary};
+  height: 35rem;
 
   ${rwd.PHONE(css`
     height: 40rem;

@@ -11,30 +11,30 @@ interface Founder {
 
 const founders: Founder[] = [
   {
-    photo:
-      'https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1344/FSH-CHN-1583918073239-unknown.jpeg',
+    photo: '/landing/founders/dinara.jpg',
     title: 'Dinara Uskenbayeva',
-    description: '',
+    description: 'Biologist, research assistant',
   },
   {
-    photo: 'https://r.mt.ru/r1/photoF2CE/20709645488-0/jpeg/bp.webp',
-    title: 'Bota Kaukenova, MD',
-    description: '',
+    photo: '/landing/founders/botagoz.jpg',
+    title: 'Botagoz Kaukenova',
+    description: 'MD',
   },
   {
-    photo: 'https://r3.mt.ru/r5/photoFB27/20546758507-0/jpeg/bp.webp',
+    photo: '/landing/founders/akmaral.jpg',
     title: 'Akmaral Tursunova',
-    description: '',
+    description: 'Lawyer',
   },
   {
-    photo: 'https://r3.mt.ru/r4/photoE1DD/20554414148-0/jpeg/bp.webp',
-    title: 'Dana Akilbekova, PhD',
-    description: '',
+    photo: '/landing/founders/dana.jpg',
+    title: 'Dana Akilbekova',
+    description: 'PhD, Professor',
   },
   {
-    photo: 'https://r2.mt.ru/r4/photoB58D/20161857937-0/jpeg/bp.webp',
+    photo: '/landing/founders/tomiris.jpg',
     title: 'Tomiris Mulikova',
-    description: '',
+
+    description: 'Chemist, research assistant',
   },
 ];
 
@@ -59,7 +59,7 @@ const FounderItem: React.FC<{ founder: Founder }> = ({ founder }) => (
   <FounderContainer>
     <img src={founder.photo} />
     <Typography.Heading3 className="title">{founder.title}</Typography.Heading3>
-    <Typography.Subtitle>{founder.description}</Typography.Subtitle>
+    <Typography.Heading6>{founder.description}</Typography.Heading6>
   </FounderContainer>
 );
 
@@ -103,6 +103,7 @@ const FounderContainer = styled.div`
     margin-bottom: 2.5rem;
     aspect-ratio: 2 / 3;
     border-radius: 0.8rem;
+    object-fit: cover;
   }
 
   .title {

@@ -202,7 +202,7 @@ const GlobalStyles = createGlobalStyle`
     `)}
 
     ${rwd.XLARGE(css`
-      font-size: 62.5%;
+      font-size: 66.5%;
     `)}
   }
 `;

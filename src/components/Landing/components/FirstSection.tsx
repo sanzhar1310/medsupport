@@ -1,4 +1,3 @@
-import { useViewportScroll } from 'framer-motion';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
@@ -6,9 +5,6 @@ import { Button } from '../../Button';
 import { Typography } from '../../Typography';
 
 export const FirstSection: React.FC = () => {
-  const { scrollY } = useViewportScroll();
-
-
   return (
     <Container className="section">
       <div className="leftSide">
@@ -27,9 +23,11 @@ export const FirstSection: React.FC = () => {
             </Typography.Subtitle>
           </div>
           <div className="buttonWrapper">
-            <Button size="large">
-              <Typography.Label>Subscribe on Instagram</Typography.Label>
-            </Button>
+            <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
+              <Button size="large" as="a">
+                <Typography.Label>Subscribe on Instagram</Typography.Label>
+              </Button>
+            </a>
           </div>
         </div>
       </div>
@@ -67,6 +65,10 @@ const Container = styled.div`
       }
       .buttonWrapper {
         margin-top: 3.2rem;
+        a {
+          color: unset;
+          text-decoration: unset;
+        }
       }
     }
   }

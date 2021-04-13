@@ -1,29 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
 
 const features = [
   {
     image: '/landing/team-unity.jpg',
     text: (
-      <>
+      <Typography.Subtitle>
         <strong>Medsupportkz</strong> is a community that unites more than <strong>100</strong>{' '}
-        people from different areas of work
-      </>
+        people from different areas of work.
+      </Typography.Subtitle>
     ),
   },
   {
     image: '/landing/team-professions.jpg',
-    text:
-      'We have a multidisciplinary team bringing together scientists, medical doctors, IT specialists, designers, lawyers, and public health specialists',
+    text: (
+      <Typography.Subtitle>
+        We have a multidisciplinary team bringing together scientists, medical doctors, IT
+        specialists, designers, lawyers, and public health specialists.
+      </Typography.Subtitle>
+    ),
   },
   {
-    image: '',
+    image: '/landing/5361.jpg',
     text: (
-      <>
+      <Typography.Subtitle>
         Being so diverse, we are working together towards one goal - raising medical literacy in{' '}
-        <strong>Central Asia</strong>
-      </>
+        <strong>Central Asia</strong>.
+      </Typography.Subtitle>
     ),
   },
 ];
@@ -32,19 +37,34 @@ export const WhoWeAreSection = () => {
   return (
     <Container id="about" className="section">
       <Typography.Heading2 className="heading">Who We Are</Typography.Heading2>
-      <FeatureList>
-        {features.map((item, index) => {
-          return (
-            <FeatureItem key={index}>
-              <ImageBlock src={item.image} />
-              <Typography.Subtitle align="center">{item.text}</Typography.Subtitle>
-            </FeatureItem>
-          );
-        })}
-      </FeatureList>
+      <ContentBody>
+        <ImageBlock src="/landing/5361.jpg" />
+        <FeatureList>
+          <li>{features[0].text}</li>
+          <li>{features[1].text}</li>
+          <li>{features[2].text}</li>
+        </FeatureList>
+      </ContentBody>
     </Container>
   );
 };
+
+const ContentBody = styled.div`
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 102rem;
+  gap: 3rem;
+
+  ${rwd.TABLET(css`
+    justify-content: space-between;
+  `)}
+`;
+
 // <ImageBlock />
 // <TextContentBlock>
 //   <Typography.Heading2 className="header">Who We Are</Typography.Heading2>
@@ -74,20 +94,22 @@ const Container = styled.div`
   }
 `;
 
-const FeatureList = styled.div`
-  width: 100%;
-
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+const FeatureList = styled.ul`
+  width: 44rem;
+  /* list-style: disc; */
+  li {
+    margin: 2rem 0;
+    ::marker {
+      font-size: 2rem;
+    }
+  }
 `;
 
 const ImageBlock = styled.div<{ src: string }>`
   position: relative;
   /* width: 54rem; */
-  width: 100%;
+  width: 53rem;
   aspect-ratio: 3 / 2;
-  margin-bottom: 0.8rem;
   border-radius: 0.4rem;
 
   background-color: #18191f;
@@ -96,17 +118,4 @@ const ImageBlock = styled.div<{ src: string }>`
   background-repeat: no-repeat;
   background-size: cover;
   background-size: cover;
-`;
-
-const FeatureItem = styled.div`
-  height: fit-content;
-  min-width: 34rem;
-  max-width: 55rem;
-  flex: 1;
-
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-
-  padding: 1.5rem;
 `;

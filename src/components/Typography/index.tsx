@@ -44,6 +44,14 @@ const Heading3 = styled.h3<CommonProps>`
   ${commonCss}
 `;
 
+const Heading6 = styled.h6<CommonProps>`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  ${commonCss}
+`;
+
 interface SubTitleProps extends CommonProps {
   weight?: 'light' | 'bold';
 }
@@ -98,6 +106,6 @@ const Label = styled.label<LabelProps>`
   ${commonCss}
 `;
 
-export const Typography = { Heading1, Heading2, Heading3, Subtitle, Lead2, Label };
+export const Typography = { Heading1, Heading2, Heading3, Heading6, Subtitle, Lead2, Label };
 
 export type TextSizes = 'large' | 'medium' | 'small';
