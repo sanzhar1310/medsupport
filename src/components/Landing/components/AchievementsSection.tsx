@@ -5,7 +5,7 @@ import { Typography } from '../../Typography';
 
 export const AchievementsSection = () => {
   return (
-    <Container>
+    <Container className="section">
       <Background />
       <Typography.Heading2 className="heading" color="white">
         Some count that matters
@@ -46,7 +46,8 @@ const Container = styled.div`
 
   width: 100%;
   height: fit-content;
-  padding: 7.2rem 0;
+  padding: 7.2rem 3.2rem;
+  padding-top: calc(7.2rem + 6.4rem);
 
   display: flex;
   flex-flow: column nowrap;
@@ -63,7 +64,6 @@ const Container = styled.div`
 
   ${rwd.DESKTOP(css`
     align-items: flex-start;
-    padding: 7.2rem 16.5rem;
   `)}
 `;
 

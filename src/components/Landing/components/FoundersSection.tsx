@@ -40,7 +40,7 @@ const founders: Founder[] = [
 
 export const FoundersSection = () => {
   return (
-    <Container>
+    <Container id="team" className="section">
       <FounderList>
         <Typography.Heading2>Founders</Typography.Heading2>
         <FounderItem founder={founders[0]} />
@@ -71,16 +71,17 @@ const Container = styled.div`
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: 7rem;
-  padding-top: 7.2rem;
+  /* gap: 7rem; */
+  padding-top: calc(7.2rem + 6.4rem);
 `;
 
 const FounderList = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  gap: 8rem;
+  /* gap: 8rem; */
 
   h2 {
+    margin-bottom: 4rem;
     text-align: center;
 
     ${rwd.TABLET(css`
@@ -93,7 +94,7 @@ const FounderContainer = styled.div`
   width: 100%;
   max-width: 60rem;
   height: fit-content;
-
+  padding: 4rem;
   display: flex;
   flex-flow: column nowrap;
 

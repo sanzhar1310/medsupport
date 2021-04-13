@@ -11,13 +11,12 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     window?.addEventListener('scroll', handleScroll);
-
     return () => {
       window?.removeEventListener('scroll', handleScroll);
     };
   }, [!!headerRef.current]);
 
-  const handleScroll = () => {
+  const handleScroll = (e: any) => {
     if (window?.pageYOffset > 0) {
       headerRef.current?.classList.add('color');
       // if (!this.state.className) {
@@ -35,7 +34,9 @@ export const Header: React.FC = () => {
     <HeaderContainer ref={headerRef}>
       <NavBar />
       <Logo />
-      <Typography.Subtitle weight="bold" className="logoLabel">MedSupport</Typography.Subtitle>
+      <Typography.Subtitle weight="bold" className="logoLabel">
+        MedSupport
+      </Typography.Subtitle>
       <NavItems />
       <SocialBlock className="socialBlock">
         <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">

@@ -40,7 +40,7 @@ const partners = [
 
 export const PartnersSection = () => {
   return (
-    <Container>
+    <Container id="partners" className="section">
       <Typography.Heading2 align="center" className="heading">
         Our Partners
       </Typography.Heading2>

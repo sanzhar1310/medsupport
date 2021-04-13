@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { ColorTypes } from '../../../styles/_colors';
 import { Typography, TextSizes } from '../../Typography';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 interface Props {
   color?: ColorTypes;
@@ -12,7 +12,17 @@ interface Props {
 }
 
 export const NavItems: React.FC<Props> = ({ color, textSize }) => {
-  // const router = useRouter();
+  const router = useRouter();
+
+  useEffect(() => {
+    const hash = router.asPath.replace('/', '');
+    console.log(hash);
+    if (hash) {
+      window.document
+        .querySelector(hash)
+        ?.scrollIntoView({ block: 'start', behavior: 'smooth', inline: 'start' });
+    }
+  }, [router.asPath]);
 
   return (
     <NavItemsBlock>

@@ -11,7 +11,7 @@ import { LandingContainer } from './styled';
 
 export const Landing: React.FC = () => {
   return (
-    <LandingContainer>
+    <LandingContainer className="landingContainer">
       <Header />
       <FirstSection />
       <div style={{ position: 'relative', overflow: 'visible', zIndex: 0 }}>

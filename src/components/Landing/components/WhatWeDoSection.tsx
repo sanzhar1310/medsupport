@@ -33,7 +33,7 @@ const steps = [
 
 export const WhatWeDoSection = () => {
   return (
-    <Container>
+    <Container className="section">
       <Typography.Heading2 className="heading" align="center">
         What We Do
       </Typography.Heading2>
@@ -95,6 +95,7 @@ const Container = styled.div`
       flex-flow: column nowrap;
       align-items: center;
       padding: 7.2rem 0;
+      padding-top: calc(7.2rem + 6.4rem);
       .titleContainer {
         img {
           display: none;
@@ -110,6 +111,7 @@ const Container = styled.div`
       flex-flow: column nowrap;
       align-items: center;
       padding: 7.2rem 16.5rem;
+      padding-top: calc(7.2rem + 6.4rem);
       .titleContainer {
         img {
           display: none;
@@ -173,6 +175,4 @@ const TextCard = styled.div`
   ${rwd.XLARGE(css`
     max-width: 122rem;
   `)}
-
-
 `;

@@ -30,14 +30,14 @@ const features = [
 
 export const WhoWeAreSection = () => {
   return (
-    <Container>
+    <Container id="about" className="section">
       <Typography.Heading2 className="heading">Who We Are</Typography.Heading2>
       <FeatureList>
         {features.map((item, index) => {
           return (
             <FeatureItem key={index}>
               <ImageBlock src={item.image} />
-              <Typography.Subtitle>{item.text}</Typography.Subtitle>
+              <Typography.Subtitle align="center">{item.text}</Typography.Subtitle>
             </FeatureItem>
           );
         })}
@@ -66,7 +66,8 @@ const Container = styled.div`
   width: 100%;
   height: fit-content;
 
-  padding: 7.2rem 16.5rem;
+  padding: 7.2rem 0 0;
+  padding-top: calc(7.2rem + 6.4rem);
 
   .heading {
     margin-bottom: 4rem;

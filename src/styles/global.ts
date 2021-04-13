@@ -185,6 +185,10 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.fontPrimary};
   }
   html, body {
+    scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(3rem);
+    scroll-snap-type: y mandatory;
     ${rwd.PHONE(css`
       font-size: 38%;
     `)}

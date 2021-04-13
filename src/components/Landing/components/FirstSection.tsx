@@ -6,7 +6,7 @@ import { Typography } from '../../Typography';
 
 export const FirstSection: React.FC = () => {
   return (
-    <Container>
+    <Container className="section">
       <div className="leftSide">
         <div className="content">
           <Typography.Heading1>
