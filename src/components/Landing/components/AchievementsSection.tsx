@@ -15,23 +15,23 @@ export const AchievementsSection = () => {
       </Typography.Subtitle>
       <Counts>
         <Count>
-          <Typography.Heading2>+100</Typography.Heading2>
+          <Typography.Heading2>100+</Typography.Heading2>
           <Typography.Subtitle align="center">
             Volunteers: scientists, medical workers and experienced translators
           </Typography.Subtitle>
         </Count>
         <Count>
-          <Typography.Heading2>+300</Typography.Heading2>
+          <Typography.Heading2>300+</Typography.Heading2>
           <Typography.Subtitle align="center">
             translated research articles and guidelines
           </Typography.Subtitle>
         </Count>
         <Count>
-          <Typography.Heading2>+34,000</Typography.Heading2>
+          <Typography.Heading2>34,000+</Typography.Heading2>
           <Typography.Subtitle align="center">followers in social media</Typography.Subtitle>
         </Count>
         <Count>
-          <Typography.Heading2>+50</Typography.Heading2>
+          <Typography.Heading2>50+</Typography.Heading2>
           <Typography.Subtitle align="center">
             publications in local media and news
           </Typography.Subtitle>

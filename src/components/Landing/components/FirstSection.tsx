@@ -78,7 +78,7 @@ const Container = styled.div`
     flex: 3;
 
     background-color: #18191f;
-    background-image: url('/landing/4386464.jpg');
+    background-image: url('/landing/6074952.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

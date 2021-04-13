@@ -161,13 +161,6 @@ const Container = styled.div`
   )}
 `;
 
-const StepItem = styled.div<{ color?: ColorTypes }>`
-  padding: 3.8rem 7rem;
-  background: ${({ color, theme }) => (color ? theme.colors[color] : '')};
-  height: fit-content;
-  width: 100%;
-`;
-
 const TextCard = styled.div`
   padding: 3.2rem;
   &.primaryColor {
