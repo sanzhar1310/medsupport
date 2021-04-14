@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
 
-export const AchievementsSection = () => {
+export const AchievementsSection: React.FC = () => {
   return (
     <Container className="section">
       <Background />

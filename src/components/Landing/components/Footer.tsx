@@ -6,7 +6,7 @@ import { Typography } from '../../Typography';
 import { Logo } from './Logo';
 import { NavItems } from './NavItems';
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <Container>
       <div className="logoContainer">

@@ -33,7 +33,7 @@ const features = [
   },
 ];
 
-export const WhoWeAreSection = () => {
+export const WhoWeAreSection: React.FC = () => {
   return (
     <Container id="about" className="section">
       <Typography.Heading2 className="heading">Who We Are</Typography.Heading2>
@@ -65,17 +65,6 @@ const ContentBody = styled.div`
   `)}
 `;
 
-// <ImageBlock />
-// <TextContentBlock>
-//   <Typography.Heading2 className="header">Who We Are</Typography.Heading2>
-//   <Typography.Subtitle>
-//     Medsupportkz is a community that unites more than 100 people from different areas of work.
-//     We have a multidisciplinary tea  m bringing together scientists, medical doctors, IT
-//     specialists, designers, lawyers, and public health specialists. Being so diverse, we are
-//     working together towards one goal - raising medical literacy in Central Asia.
-//   </Typography.Subtitle>
-// </TextContentBlock>
-
 const Container = styled.div`
   z-index: 1;
   display: flex;
@@ -96,7 +85,6 @@ const Container = styled.div`
 
 const FeatureList = styled.ul`
   width: 44rem;
-  /* list-style: disc; */
   li {
     margin: 2rem 0;
     ::marker {
@@ -107,7 +95,6 @@ const FeatureList = styled.ul`
 
 const ImageBlock = styled.div<{ src: string }>`
   position: relative;
-  /* width: 54rem; */
   width: 53rem;
   aspect-ratio: 3 / 2;
   border-radius: 0.4rem;
@@ -116,6 +103,5 @@ const ImageBlock = styled.div<{ src: string }>`
   background-image: url(${({ src }) => src});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   background-size: cover;
 `;

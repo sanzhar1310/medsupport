@@ -38,7 +38,7 @@ const partners = [
   },
 ];
 
-export const PartnersSection = () => {
+export const PartnersSection: React.FC = () => {
   return (
     <Container id="partners" className="section">
       <Typography.Heading2 align="center" className="heading">

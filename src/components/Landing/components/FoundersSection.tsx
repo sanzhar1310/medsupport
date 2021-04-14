@@ -38,7 +38,7 @@ const founders: Founder[] = [
   },
 ];
 
-export const FoundersSection = () => {
+export const FoundersSection: React.FC = () => {
   return (
     <Container id="team" className="section">
       <FounderList>
@@ -57,7 +57,7 @@ export const FoundersSection = () => {
 
 const FounderItem: React.FC<{ founder: Founder }> = ({ founder }) => (
   <FounderContainer>
-    <img src={founder.photo} />
+    <img src={founder.photo} alt="foundersPhoto" />
     <Typography.Heading3 className="title">{founder.title}</Typography.Heading3>
     <Typography.Heading6>{founder.description}</Typography.Heading6>
   </FounderContainer>

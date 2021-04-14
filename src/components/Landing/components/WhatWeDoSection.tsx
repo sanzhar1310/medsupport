@@ -1,11 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
-import { ColorTypes } from '../../../styles/_colors';
 import { Typography } from '../../Typography';
 
 const steps = [
-  <Typography.Subtitle color="white">
+  <Typography.Subtitle color="white" key={0}>
     <strong>Medsupportkz</strong> was established in May 2020 amidst the worst time of{' '}
     <strong>COVID-19</strong> pandemic in Central Asia. The project includes a team of 100
     volunteers: scientists, medical workers and experienced translators. The official communication
@@ -14,7 +13,7 @@ const steps = [
     turn, were more than ever frustrated and burned out due to both poor working conditions and a
     lack of systematic support.
   </Typography.Subtitle>,
-  <Typography.Subtitle>
+  <Typography.Subtitle key={1}>
     The <strong>COVID-19</strong> pandemic has exposed many healthcare and health literacy problems
     among people of Central Asia. With the start of the epidemic in Central Asia, the social media
     got clattered with fake information, which was widely spread among the population. Insufficient
@@ -23,7 +22,7 @@ const steps = [
     population. Thus, people distrust all health authorities, be it the Ministry of Health, WHO, or
     UNICEF, and prefer to get treated by folk medicine specialists.
   </Typography.Subtitle>,
-  <Typography.Heading6>
+  <Typography.Heading6 key={2}>
     <strong>
       Medsupport became a bridge between trusted scientific information and local medical workers
       who do not have time or sufficient level of English. Platform provides scientifically reliable
@@ -33,23 +32,17 @@ const steps = [
   </Typography.Heading6>,
 ];
 
-export const WhatWeDoSection = () => {
+export const WhatWeDoSection: React.FC = () => {
   return (
     <Container className="section">
       <Typography.Heading2 className="heading" align="center">
         What We Do
       </Typography.Heading2>
-      {/* <div className="titleContainer">
-        <img src="/landing/question-pills.jpg" />
-      </div> */}
       <div className="stepContainer">
         <TextCard className="primaryColor">{steps[0]}</TextCard>
         <TextCard className="secondaryColor">{steps[1]}</TextCard>
         <TextCard className="last">{steps[2]}</TextCard>
-        {/* <StepItem color="primary">{steps[0]}</StepItem> */}
-        {/* <StepItem color="secondary">{steps[1]}</StepItem> */}
       </div>
-      {/* <StepItem color="white">{}</StepItem> */}
     </Container>
   );
 };
@@ -63,7 +56,6 @@ const Container = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-content: flex-start;
-  /* align-items: space-evenly; */
 
   .heading {
     width: 100%;
@@ -88,15 +80,12 @@ const Container = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    /* background: ${({ theme }) => theme.colors.secondary}; */
 
     .last {
       padding-top: 6rem;
       strong {
         font-weight: 800;
       }
-      /* font-weight: 800; */
-      /* max-width: none; */
     }
   }
 
@@ -112,7 +101,6 @@ const Container = styled.div`
           display: none;
         }
       }
-      /* height: 0; */
     `,
   )}
 
@@ -132,7 +120,6 @@ const Container = styled.div`
       .stepContainer {
         gap: 2rem;
       }
-      /* height: 0; */
     `,
   )}
 
@@ -141,14 +128,12 @@ const Container = styled.div`
       flex-flow: column nowrap;
       align-items: flex-start;
       justify-content: flex-start;
-      /* padding: 7.2rem 16.5rem; */
       .titleContainer {
         img {
           display: block;
         }
       }
       .stepContainer {
-        /* margin-top: 4rem; */
         align-self: initial;
 
         min-width: 30rem;
@@ -171,12 +156,8 @@ const TextCard = styled.div`
     background: ${({ theme }) => theme.colors.secondary};
   }
 
-  /* ${rwd.PHONE(css``)} */
   ${rwd.TABLET(css`
     border-radius: 1rem;
     max-width: 109rem;
-  `)}
-  ${rwd.XLARGE(css`
-    /* max-width: 122rem; */
   `)}
 `;

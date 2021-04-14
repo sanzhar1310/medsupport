@@ -1,14 +1,19 @@
 import { RefObject, useEffect, useRef } from 'react';
 
-export const useDimensions = (ref: RefObject<HTMLElement>) => {
+export const useDimensions = ({
+  current,
+}: RefObject<HTMLElement>): {
+  width: number;
+  height: number;
+} => {
   const dimensions = useRef({ width: 0, height: 0 });
 
   useEffect(() => {
-    if (ref.current) {
-      dimensions.current.width = ref.current.offsetWidth;
-      dimensions.current.height = ref.current.offsetHeight;
+    if (current) {
+      dimensions.current.width = current.offsetWidth;
+      dimensions.current.height = current.offsetHeight;
     }
-  }, [!ref.current]);
+  }, [current]);
 
   return dimensions.current;
 };

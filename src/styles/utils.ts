@@ -4,10 +4,10 @@
  * @param base {number} - base font size in px, defaults to browser default 1.6rem
  * @returns {number} rem value
  */
-export const remCalc = (px: number, base: number = 16): number => px / base;
+export const remCalc = (px: number, base = 16): number => px / base;
 
 /**
- * Converts full hex color to rgb color, optionaly with alpha
+ * Converts full hex color to rgb color, optionally with alpha
  * @param hex {string} - full hex color, eg #123456
  * @param alpha {number} - alpha value of color in range from 0 to 1
  * @returns {string} rgb or rgba color

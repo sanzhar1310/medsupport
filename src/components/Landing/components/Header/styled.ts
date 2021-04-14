@@ -52,7 +52,6 @@ export const SocialBlock = styled.div`
 
   .alwaysShow {
     display: flex !important;
-
   }
   ${rwd.DESKTOP(css`
     display: flex;

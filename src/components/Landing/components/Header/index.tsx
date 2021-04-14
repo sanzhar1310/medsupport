@@ -14,9 +14,9 @@ export const Header: React.FC = () => {
     return () => {
       window?.removeEventListener('scroll', handleScroll);
     };
-  }, [!!headerRef.current]);
+  }, []);
 
-  const handleScroll = () => {
+  const handleScroll = (): void => {
     if (window?.pageYOffset > 0) {
       headerRef.current?.classList.add('color');
       // if (!this.state.className) {

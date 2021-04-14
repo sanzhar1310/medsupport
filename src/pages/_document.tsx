@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
     }
   }
 
-  render() {
+  render(): React.ReactElement {
     return (
       <Html>
         <Head />
