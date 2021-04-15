@@ -40,13 +40,28 @@ export const Header: React.FC = () => {
       <NavItems />
       <SocialBlock className="socialBlock">
         <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
-          <Image src="/icons/social/instagram.svg" width={32} height={32} />
+          <Image
+            loader={({ src }) => src}
+            src="/images/social/instagram.svg"
+            width={32}
+            height={32}
+          />
         </a>
         <a className="icon" href="https://www.facebook.com/medsupportkz" target="__blank">
-          <Image src="/icons/social/facebook.svg" width={32} height={32} />
+          <Image
+            loader={({ src }) => src}
+            src="/images/social/facebook.svg"
+            width={32}
+            height={32}
+          />
         </a>
         <a className="icon" href="https://t.me/medsupportkz" target="__blank">
-          <Image src="/icons/social/telegram.svg" width={32} height={32} />
+          <Image
+            loader={({ src }) => src}
+            src="/images/social/telegram.svg"
+            width={32}
+            height={32}
+          />
         </a>
       </SocialBlock>
     </HeaderContainer>

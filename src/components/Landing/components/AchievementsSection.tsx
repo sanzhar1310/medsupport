@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
@@ -93,13 +94,24 @@ const Counts = styled.div`
   justify-content: space-evenly;
 `;
 
-const Count = styled.div`
-  aspect-ratio: 1 / 1;
+const Count: React.FC = ({ children }) => {
+  return (
+    <CountContainer>
+      <Image
+        loader={({ src }) => src}
+        src="/images/landing/polygon.svg"
+        layout="fill"
+        objectFit="fill"
+        objectPosition="center"
+      />
+      {children}
+    </CountContainer>
+  );
+};
 
-  background-image: url('/landing/polygon.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+const CountContainer = styled.div`
+  position: relative;
+  aspect-ratio: 1 / 1;
 
   display: flex;
   flex-flow: column nowrap;
@@ -108,4 +120,9 @@ const Count = styled.div`
   flex-basis: 36rem;
 
   padding: 10rem 6rem;
+
+  h2,
+  span {
+    z-index: 1;
+  }
 `;

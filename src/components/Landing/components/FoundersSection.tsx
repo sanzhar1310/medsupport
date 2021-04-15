@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
@@ -11,27 +12,27 @@ interface Founder {
 
 const founders: Founder[] = [
   {
-    photo: '/landing/founders/dinara.jpg',
+    photo: '/images/landing/founders/dinara.jpg',
     title: 'Dinara Uskenbayeva',
     description: 'Biologist, research assistant',
   },
   {
-    photo: '/landing/founders/botagoz.jpg',
+    photo: '/images/landing/founders/botagoz.jpg',
     title: 'Botagoz Kaukenova',
     description: 'MD',
   },
   {
-    photo: '/landing/founders/akmaral.jpg',
+    photo: '/images/landing/founders/akmaral.jpg',
     title: 'Akmaral Tursunova',
     description: 'Lawyer',
   },
   {
-    photo: '/landing/founders/dana.jpg',
+    photo: '/images/landing/founders/dana.jpg',
     title: 'Dana Akilbekova',
     description: 'PhD, Professor',
   },
   {
-    photo: '/landing/founders/tomiris.jpg',
+    photo: '/images/landing/founders/tomiris.jpg',
     title: 'Tomiris Mulikova',
 
     description: 'Chemist, research assistant',
@@ -57,7 +58,15 @@ export const FoundersSection: React.FC = () => {
 
 const FounderItem: React.FC<{ founder: Founder }> = ({ founder }) => (
   <FounderContainer>
-    <img src={founder.photo} alt="foundersPhoto" />
+    <div className="founderImageContainer">
+      <Image
+        loader={({ src }) => src}
+        src={founder.photo}
+        alt="foundersPhoto"
+        objectFit="cover"
+        layout="fill"
+      />
+    </div>
     <Typography.Heading3 className="title">{founder.title}</Typography.Heading3>
     <Typography.Heading6>{founder.description}</Typography.Heading6>
   </FounderContainer>
@@ -98,12 +107,12 @@ const FounderContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
 
-  img {
+  .founderImageContainer {
+    position: relative;
     height: 60rem;
     margin-bottom: 2.5rem;
     aspect-ratio: 2 / 3;
     border-radius: 0.8rem;
-    object-fit: cover;
   }
 
   .title {

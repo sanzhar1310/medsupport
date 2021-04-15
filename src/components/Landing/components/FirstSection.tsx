@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
@@ -31,7 +32,15 @@ export const FirstSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="rightSide">{/* <Image src="/landing/4386464.jpg" layout="fill" /> */}</div>
+      <div className="rightSide">
+        <Image
+          loader={({ src }) => src}
+          src="/images/landing/6074952.jpg"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      </div>
     </Container>
   );
 };
@@ -78,10 +87,10 @@ const Container = styled.div`
     flex: 3;
 
     background-color: #18191f;
-    background-image: url('/landing/6074952.jpg');
-    background-position: center;
+    /* background-image: url('/images/landing/6074952.jpg'); */
+    /* background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
   }
 
   ${rwd['PHONE'](css`

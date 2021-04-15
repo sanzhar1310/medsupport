@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
@@ -5,7 +6,7 @@ import { Typography } from '../../Typography';
 
 const features = [
   {
-    image: '/landing/team-unity.jpg',
+    image: '/images/landing/team-unity.jpg',
     text: (
       <Typography.Subtitle>
         <strong>Medsupportkz</strong> is a community that unites more than <strong>100</strong>{' '}
@@ -14,7 +15,7 @@ const features = [
     ),
   },
   {
-    image: '/landing/team-professions.jpg',
+    image: '/images/landing/team-professions.jpg',
     text: (
       <Typography.Subtitle>
         We have a multidisciplinary team bringing together scientists, medical doctors, IT
@@ -23,7 +24,7 @@ const features = [
     ),
   },
   {
-    image: '/landing/5361.jpg',
+    image: '/images/landing/5361.jpg',
     text: (
       <Typography.Subtitle>
         Being so diverse, we are working together towards one goal - raising medical literacy in{' '}
@@ -38,7 +39,7 @@ export const WhoWeAreSection: React.FC = () => {
     <Container id="about" className="section">
       <Typography.Heading2 className="heading">Who We Are</Typography.Heading2>
       <ContentBody>
-        <ImageBlock src="/landing/5361.jpg" />
+        <ImageBlock src="/images/landing/5361.jpg" />
         <FeatureList>
           <li>{features[0].text}</li>
           <li>{features[1].text}</li>
@@ -93,15 +94,23 @@ const FeatureList = styled.ul`
   }
 `;
 
-const ImageBlock = styled.div<{ src: string }>`
+const ImageBlockContainer = styled.div`
   position: relative;
   width: 53rem;
   aspect-ratio: 3 / 2;
   border-radius: 0.4rem;
 
   background-color: #18191f;
-  background-image: url(${({ src }) => src});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 `;
+/* background-image: url(${({ src }) => src}); */
+
+const ImageBlock: React.FC<{ src: string }> = ({ src }) => {
+  return (
+    <ImageBlockContainer>
+      <Image loader={({ src }) => src} src={src} layout="fill" alt="a" objectFit="cover" />
+    </ImageBlockContainer>
+  );
+};

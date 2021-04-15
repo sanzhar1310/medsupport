@@ -22,17 +22,29 @@ export const Footer: React.FC = () => {
         <SocialBlock className="alwaysShow">
           <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
             <SocialLogoContainer>
-              <Image src="/icons/social/instagram-white.svg" layout="fill" />
+              <Image
+                loader={({ src }) => src}
+                src="/images/social/instagram-white.svg"
+                layout="fill"
+              />
             </SocialLogoContainer>
           </a>
           <a className="icon" href="https://www.facebook.com/medsupportkz" target="__blank">
             <SocialLogoContainer>
-              <Image src="/icons/social/facebook-white.svg" layout="fill" />
+              <Image
+                loader={({ src }) => src}
+                src="/images/social/facebook-white.svg"
+                layout="fill"
+              />
             </SocialLogoContainer>
           </a>
           <a className="icon" href="https://t.me/medsupportkz" target="__blank">
             <SocialLogoContainer>
-              <Image src="/icons/social/telegram-white.svg" layout="fill" />
+              <Image
+                loader={({ src }) => src}
+                src="/images/social/telegram-white.svg"
+                layout="fill"
+              />
             </SocialLogoContainer>
           </a>
         </SocialBlock>

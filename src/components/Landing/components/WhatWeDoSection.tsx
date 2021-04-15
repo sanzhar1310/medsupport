@@ -67,11 +67,6 @@ const Container = styled.div`
 
     display: flex;
     flex-flow: column nowrap;
-    img {
-      object-fit: cover;
-      width: 44.5rem;
-      height: 52.5rem;
-    }
   }
 
   .stepContainer {
@@ -96,11 +91,6 @@ const Container = styled.div`
       align-items: center;
       padding: 7.2rem 0;
       padding-top: calc(7.2rem + 6.4rem);
-      .titleContainer {
-        img {
-          display: none;
-        }
-      }
     `,
   )}
 
@@ -111,11 +101,6 @@ const Container = styled.div`
       align-items: center;
       padding: 7.2rem 0;
       padding-top: calc(7.2rem + 6.4rem);
-      .titleContainer {
-        img {
-          display: none;
-        }
-      }
 
       .stepContainer {
         gap: 2rem;
@@ -128,11 +113,7 @@ const Container = styled.div`
       flex-flow: column nowrap;
       align-items: flex-start;
       justify-content: flex-start;
-      .titleContainer {
-        img {
-          display: block;
-        }
-      }
+
       .stepContainer {
         align-self: initial;
 

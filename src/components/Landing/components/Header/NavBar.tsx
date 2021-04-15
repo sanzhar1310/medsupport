@@ -185,7 +185,12 @@ const Navigation = () => {
       <MenuItem>
         <SocialLinkWrap href="https://www.instagram.com/medsupportkz/" target="__blank">
           <div className="icon-placeholder">
-            <Image src="/icons/social/instagram.svg" width={32} height={32} />
+            <Image
+              loader={({ src }) => src}
+              src="/images/social/instagram.svg"
+              width={32}
+              height={32}
+            />
           </div>
           <Typography.Subtitle>Instagram</Typography.Subtitle>
         </SocialLinkWrap>
@@ -193,7 +198,12 @@ const Navigation = () => {
       <MenuItem>
         <SocialLinkWrap href="https://www.facebook.com/medsupportkz" target="__blank">
           <div className="icon-placeholder">
-            <Image src="/icons/social/facebook.svg" width={32} height={32} />
+            <Image
+              loader={({ src }) => src}
+              src="/images/social/facebook.svg"
+              width={32}
+              height={32}
+            />
           </div>
           <Typography.Subtitle>Facebook</Typography.Subtitle>
         </SocialLinkWrap>
@@ -201,7 +211,12 @@ const Navigation = () => {
       <MenuItem>
         <SocialLinkWrap href="https://t.me/medsupportkz" target="__blank">
           <div className="icon-placeholder">
-            <Image src="/icons/social/telegram.svg" width={32} height={32} />
+            <Image
+              loader={({ src }) => src}
+              src="/images/social/telegram.svg"
+              width={32}
+              height={32}
+            />
           </div>
           <Typography.Subtitle>Telegram</Typography.Subtitle>
         </SocialLinkWrap>

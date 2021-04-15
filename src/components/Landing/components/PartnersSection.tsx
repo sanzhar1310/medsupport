@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
@@ -6,7 +7,7 @@ import { Typography } from '../../Typography';
 const partners = [
   {
     image: '',
-    // '/landing/partners/health-ministry.png',
+    // '/images/landing/partners/health-ministry.png',
     title: (
       <>
         <span>Ministry of Healthcare</span>
@@ -16,15 +17,15 @@ const partners = [
     ),
   },
   {
-    image: '/landing/partners/unicef.png',
+    image: '/images/landing/partners/unicef.png',
     title: '',
   },
   {
-    image: '/landing/partners/usaid.png',
+    image: '/images/landing/partners/usaid.png',
     title: '',
   },
   {
-    image: '/landing/partners/who.png',
+    image: '/images/landing/partners/who.png',
     title: '',
   },
   {
@@ -48,7 +49,17 @@ export const PartnersSection: React.FC = () => {
       <PartnersRowList>
         {partners.map((partner, index) => (
           <PartnerContainer key={index}>
-            {partner.image && <PartnerImg src={partner.image} />}
+            {partner.image && (
+              <PartnerImgContainer>
+                <Image
+                  loader={({ src }) => src}
+                  src={partner.image}
+                  width={150}
+                  height={60}
+                  objectFit="contain"
+                />
+              </PartnerImgContainer>
+            )}
             {partner.title && <Typography.Label size="large">{partner.title}</Typography.Label>}
           </PartnerContainer>
         ))}
@@ -104,6 +115,7 @@ const PartnerContainer = styled.div`
   }
 `;
 
-const PartnerImg = styled.img`
+const PartnerImgContainer = styled.div`
   max-width: 18rem;
+  max-height: 5rem;
 `;
