@@ -8,37 +8,20 @@ import { PartnersSection } from './components/PartnersSection';
 import { WhatWeDoSection } from './components/WhatWeDoSection';
 import { WhoWeAreSection } from './components/WhoWeAreSection';
 import { LandingContainer } from './styled';
+import styled from 'styled-components';
 
 export const Landing: React.FC = () => {
   return (
     <LandingContainer className="landingContainer">
       <Header />
       <FirstSection />
-      <div style={{ position: 'relative', overflow: 'visible', zIndex: 0 }}>
-        <span
-          style={{
-            height: '50vh',
-            width: '100%',
-            position: 'absolute',
-            left: '0',
-            top: '-15vh',
-            background: '#F4F5F7',
-          }}
-        />
-      </div>
+      <DividerContainer>
+        <span />
+      </DividerContainer>
       <WhoWeAreSection />
-      <div style={{ position: 'relative', overflow: 'visible', zIndex: 0 }}>
-        <span
-          style={{
-            height: '50vh',
-            width: '100%',
-            position: 'absolute',
-            left: '0',
-            top: '-15vh',
-            background: '#F4F5F7',
-          }}
-        />
-      </div>
+      <DividerContainer>
+        <span />
+      </DividerContainer>
       <WhatWeDoSection />
       <AchievementsSection />
       <FoundersSection />
@@ -47,3 +30,17 @@ export const Landing: React.FC = () => {
     </LandingContainer>
   );
 };
+
+const DividerContainer = styled.div`
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+  span {
+    height: 50vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: -15vh;
+    background: #f4f5f7;
+  }
+`;

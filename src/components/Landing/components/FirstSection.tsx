@@ -1,32 +1,32 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Button } from '../../Button';
 import { Typography } from '../../Typography';
 
 export const FirstSection: React.FC = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <Container className="section">
       <div className="leftSide">
         <div className="content">
           <Typography.Heading1>
-            PUBLIC HEALTH
+            {t('firstSection.title.publicHealth')}
             <br />
-            MEDICINE
+            {t('firstSection.title.medicine')}
             <br />
-            SCIENCE
+            {t('firstSection.title.science')}
           </Typography.Heading1>
           <div className="subtitle">
-            <Typography.Subtitle>
-              Community of scientists and medical workers promoting science and empirical thinking
-              in regards to medicine, healthcare, and personal health.
-            </Typography.Subtitle>
+            <Typography.Subtitle>{t('firstSection.subtitle')}</Typography.Subtitle>
           </div>
           <div className="buttonWrapper">
             <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
               <Button size="large" as="a">
-                <Typography.Label>Subscribe on Instagram</Typography.Label>
+                <Typography.Label>{t('firstSection.button.subscribe')}</Typography.Label>
               </Button>
             </a>
           </div>

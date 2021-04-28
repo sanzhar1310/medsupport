@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
@@ -7,43 +8,32 @@ import { Typography } from '../../Typography';
 const features = [
   {
     image: '/images/landing/team-unity.jpg',
-    text: (
-      <Typography.Subtitle>
-        <strong>Medsupportkz</strong> is a community that unites more than <strong>100</strong>{' '}
-        people from different areas of work.
-      </Typography.Subtitle>
-    ),
+    text: 'whoWeAre.feature1',
   },
   {
     image: '/images/landing/team-professions.jpg',
-    text: (
-      <Typography.Subtitle>
-        We have a multidisciplinary team bringing together scientists, medical doctors, IT
-        specialists, designers, lawyers, and public health specialists.
-      </Typography.Subtitle>
-    ),
+    text: 'whoWeAre.feature2',
   },
   {
     image: '/images/landing/5361.jpg',
-    text: (
-      <Typography.Subtitle>
-        Being so diverse, we are working together towards one goal - raising medical literacy in{' '}
-        <strong>Central Asia</strong>.
-      </Typography.Subtitle>
-    ),
+    text: 'whoWeAre.feature3',
   },
 ];
 
 export const WhoWeAreSection: React.FC = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <Container id="about" className="section">
-      <Typography.Heading2 className="heading">Who We Are</Typography.Heading2>
+      <Typography.Heading2 className="heading">{t('whoWeAre.header')}</Typography.Heading2>
       <ContentBody>
         <ImageBlock src="/images/landing/5361.jpg" />
         <FeatureList>
-          <li>{features[0].text}</li>
-          <li>{features[1].text}</li>
-          <li>{features[2].text}</li>
+          {features.map(({ text }, index) => (
+            <li key={index}>
+              <Typography.Subtitle dangerouslySetInnerHTML={{ __html: t(text) }} />
+            </li>
+          ))}
         </FeatureList>
       </ContentBody>
     </Container>

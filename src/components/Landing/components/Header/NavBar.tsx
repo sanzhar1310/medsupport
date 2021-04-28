@@ -1,7 +1,8 @@
-import { motion, SVGMotionProps, useCycle } from 'framer-motion';
+import React, { useRef } from 'react';
+import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import { motion, SVGMotionProps, useCycle } from 'framer-motion';
 import styled, { css } from 'styled-components';
 import { useDimensions } from '../../../../hooks/useDimensionst';
 import rwd from '../../../../styles/rwd';
@@ -123,7 +124,7 @@ const ToggleLayout = styled.div`
   height: 100vh;
 `;
 
-export const NavBar = () => {
+export const NavBar: React.FC = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef<HTMLElement>(null);
   const { height } = useDimensions(containerRef);
@@ -161,22 +162,24 @@ const SocialLinkWrap = styled.a`
   align-items: center;
 `;
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <motion.ul variants={navigationVariants}>
       <MenuItem>
         <Link href="#about">
-          <Typography.Subtitle className="link">About us</Typography.Subtitle>
+          <Typography.Subtitle className="link">{t('header.aboutUs')}</Typography.Subtitle>
         </Link>
       </MenuItem>
       <MenuItem>
         <Link href="#team">
-          <Typography.Subtitle className="link">Team</Typography.Subtitle>
+          <Typography.Subtitle className="link">{t('header.team')}</Typography.Subtitle>
         </Link>
       </MenuItem>
       <MenuItem>
         <Link href="#partners">
-          <Typography.Subtitle className="link">Partners</Typography.Subtitle>
+          <Typography.Subtitle className="link">{t('header.partners')}</Typography.Subtitle>
         </Link>
       </MenuItem>
       <MenuItem />

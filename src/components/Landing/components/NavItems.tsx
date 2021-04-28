@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import React, { useEffect } from 'react';
+import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { ColorTypes } from '../../../styles/_colors';
@@ -13,6 +14,7 @@ interface Props {
 
 export const NavItems: React.FC<Props> = ({ color, textSize }) => {
   const router = useRouter();
+  const { t } = useTranslation('landing');
 
   useEffect(() => {
     const hash = router.asPath.replace('/', '');
@@ -28,17 +30,17 @@ export const NavItems: React.FC<Props> = ({ color, textSize }) => {
     <NavItemsBlock>
       <Link href="#about">
         <Typography.Label className="link" color={color} size={textSize}>
-          About us
+          {t('header.aboutUs')}
         </Typography.Label>
       </Link>
       <Link href="#team">
         <Typography.Label className="link" color={color} size={textSize}>
-          Team
+          {t('header.team')}
         </Typography.Label>
       </Link>
       <Link href="#partners">
         <Typography.Label className="link" color={color} size={textSize}>
-          Partners
+          {t('header.partners')}
         </Typography.Label>
       </Link>
     </NavItemsBlock>

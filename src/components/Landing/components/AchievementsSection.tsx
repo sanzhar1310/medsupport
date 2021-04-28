@@ -1,41 +1,35 @@
-import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
 
 export const AchievementsSection: React.FC = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <Container className="section">
       <Background />
       <Typography.Heading2 className="heading" color="white">
-        Some count that matters
+        {t('achievements.header')}
       </Typography.Heading2>
-      <Typography.Subtitle className="subtitle" color="white">
-        Our achievement in the journey depicted in numbers
-      </Typography.Subtitle>
       <Counts>
         <Count>
           <Typography.Heading2>100+</Typography.Heading2>
-          <Typography.Subtitle align="center">
-            Volunteers: scientists, medical workers and experienced translators
-          </Typography.Subtitle>
+          <Typography.Subtitle align="center">{t('achievements.volunteers')}</Typography.Subtitle>
         </Count>
         <Count>
           <Typography.Heading2>300+</Typography.Heading2>
-          <Typography.Subtitle align="center">
-            translated research articles and guidelines
-          </Typography.Subtitle>
+          <Typography.Subtitle align="center">{t('achievements.translations')}</Typography.Subtitle>
         </Count>
         <Count>
           <Typography.Heading2>34,000+</Typography.Heading2>
-          <Typography.Subtitle align="center">followers in social media</Typography.Subtitle>
+          <Typography.Subtitle align="center">{t('achievements.followers')}</Typography.Subtitle>
         </Count>
         <Count>
           <Typography.Heading2>50+</Typography.Heading2>
-          <Typography.Subtitle align="center">
-            publications in local media and news
-          </Typography.Subtitle>
+          <Typography.Subtitle align="center">{t('achievements.publications')}</Typography.Subtitle>
         </Count>
       </Counts>
     </Container>
