@@ -1,3 +1,4 @@
+const path = require('path');
 const { i18n } = require('./next-i18next.config');
 
 /**
@@ -12,6 +13,7 @@ const config = {
     path: 'https://res.cloudinary.com/dadetanjx/image/upload/v1618557276',
   },
   i18n,
+  localePath: path.resolve('./public/locales'),
 };
 
 module.exports = config;
