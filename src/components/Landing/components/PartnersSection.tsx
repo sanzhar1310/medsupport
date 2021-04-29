@@ -35,7 +35,7 @@ const partners = [
 ];
 
 export const PartnersSection: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('landing');
 
   return (
     <Container id="partners" className="section">
@@ -64,7 +64,7 @@ export const PartnersSection: React.FC = () => {
                   typeof partner.title === 'string' ? { __html: t(partner.title) } : undefined
                 }
               >
-                {typeof partner.title !== 'string' ? partner.title : ''}
+                {typeof partner.title !== 'string' ? partner.title : null}
               </Typography.Label>
             )}
           </PartnerContainer>

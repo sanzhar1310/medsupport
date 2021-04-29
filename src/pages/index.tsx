@@ -1,26 +1,28 @@
-import dynamic from 'next/dynamic';
 import React from 'react';
 import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 import { Landing } from '../components/Landing';
+import nextI18NextConfig from '../../next-i18next.config';
 
 const Layout = dynamic(() => import('../components/Layout').then((ctx) => ctx.Layout), {
   ssr: false,
 }) as React.FC<{ title?: string }>;
 
-export default function Home(): JSX.Element {
+const Home: React.FC = () => {
   return (
     <Layout title="MedSupport | Medical Support">
       <Landing />
     </Layout>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(locale && (await serverSideTranslations(locale, ['landing']))),
+      ...(locale && (await serverSideTranslations(locale, ['landing'], nextI18NextConfig))),
     },
   };
 };
+
+export default Home;
