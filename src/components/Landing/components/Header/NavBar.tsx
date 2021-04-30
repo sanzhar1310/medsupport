@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, SVGMotionProps, useCycle } from 'framer-motion';
+import { motion, SVGMotionProps, useCycle, Variants } from 'framer-motion';
 import styled, { css } from 'styled-components';
 import { useDimensions } from '../../../../hooks/useDimensionst';
 import rwd from '../../../../styles/rwd';
@@ -228,10 +228,11 @@ const Navigation: React.FC = () => {
   );
 };
 
-const variants = {
+const variants: Variants = {
   open: {
     y: 0,
     opacity: 1,
+    visibility: 'visible',
     transition: {
       y: { stiffness: 1000, velocity: -100 },
     },
@@ -239,6 +240,7 @@ const variants = {
   closed: {
     y: 50,
     opacity: 0,
+    visibility: 'hidden',
     transition: {
       y: { stiffness: 1000 },
     },

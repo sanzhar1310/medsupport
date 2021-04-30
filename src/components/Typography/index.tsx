@@ -4,9 +4,11 @@ import { ColorTypes } from '../../styles/_colors';
 interface CommonProps {
   color?: ColorTypes;
   align?: 'start' | 'center' | 'end';
+  size?: string | number;
 }
 
 const commonCss = css<CommonProps>`
+  cursor: inherit;
   ${({ color, theme }) => {
     return (
       color &&
@@ -18,6 +20,7 @@ const commonCss = css<CommonProps>`
   }}
 
   ${({ align }) => align && `text-align: ${align}`}
+  ${({ size }) => size && `font-size: ${size}`}
 `;
 
 const Heading1 = styled.h1<CommonProps>`

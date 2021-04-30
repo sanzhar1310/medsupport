@@ -18,7 +18,6 @@ export const NavItems: React.FC<Props> = ({ color, textSize }) => {
 
   useEffect(() => {
     const hash = router.asPath.replace('/', '');
-    console.log(hash);
     if (hash) {
       window.document
         .querySelector(hash)
@@ -52,6 +51,7 @@ const NavItemsBlock = styled.div`
   display: flex;
   flex-flow: row nowrap;
   display: none;
+  gap: 3.2rem;
   ${rwd.DESKTOP(css`
     display: flex;
   `)}
@@ -66,10 +66,6 @@ const NavItemsBlock = styled.div`
     :hover {
       color: ${({ theme }) => theme.colors.primary};
       -webkit-text-fill-color: ${({ theme }) => theme.colors.primary};
-    }
-    margin-right: 3.2rem;
-    :last-child {
-      margin-right: 0;
     }
   }
 `;

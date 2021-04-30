@@ -20,7 +20,8 @@ const Home: React.FC = () => {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(locale && (await serverSideTranslations(locale, ['landing'], nextI18NextConfig))),
+      ...(locale &&
+        (await serverSideTranslations(locale, ['landing', 'common'], nextI18NextConfig))),
     },
   };
 };

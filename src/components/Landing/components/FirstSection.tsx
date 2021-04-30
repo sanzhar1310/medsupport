@@ -5,15 +5,19 @@ import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Button } from '../../Button';
 import { Typography } from '../../Typography';
+import { useRouter } from 'next/router';
 
 export const FirstSection: React.FC = () => {
   const { t } = useTranslation('landing');
+  const { locale } = useRouter();
+
+  const headerFontSize = locale !== 'en' && '5.2rem';
 
   return (
     <Container className="section">
       <div className="leftSide">
         <div className="content">
-          <Typography.Heading1>
+          <Typography.Heading1 size={headerFontSize || undefined}>
             {t('firstSection.title.publicHealth')}
             <br />
             {t('firstSection.title.medicine')}
@@ -67,6 +71,7 @@ const Container = styled.div`
     align-items: center;
 
     .content {
+      word-break: break-word;
       /* max-width: 54rem; */
       .subtitle {
         max-width: 54rem;
@@ -99,6 +104,7 @@ const Container = styled.div`
     .rightSide {
       height: 35vh;
       flex: unset;
+
       /* flex-flow: row nowrap;
       display: none; */
     }
@@ -108,9 +114,11 @@ const Container = styled.div`
       height: fit-content;
       flex: unset;
       padding: 0;
-      padding-top: 14.5rem;
+      padding-top: 8.5rem;
       justify-content: center;
       align-items: flex-start;
+      padding-left: 3.2rem;
+      padding-right: 3.2rem;
     }
 
     /* background: red; */
@@ -134,6 +142,8 @@ const Container = styled.div`
       padding-top: 14.5rem;
       justify-content: center;
       align-items: flex-start;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     /* background: red; */

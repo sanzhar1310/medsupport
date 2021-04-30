@@ -5,9 +5,14 @@ import { Typography } from '../../../Typography';
 import { Logo } from '../Logo';
 import { NavItems } from '../NavItems';
 import { NavBar } from './NavBar';
+import { Dropdown } from '../../../Dropdown';
+import Link from 'next/link';
+import { Button } from '../../../Button';
+import { useTranslation } from 'react-i18next';
 
 export const Header: React.FC = () => {
   const headerRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     window?.addEventListener('scroll', handleScroll);
@@ -64,6 +69,28 @@ export const Header: React.FC = () => {
           />
         </a>
       </SocialBlock>
+      <div style={{ margin: '0 3.2rem' }}>
+        <Dropdown
+          listItems={[
+            <Link key="kz" href="/" locale="kz">
+              <Button width="100%" variant="link">
+                <Typography.Label color={'white'}>Қазақ</Typography.Label>
+              </Button>
+            </Link>,
+            <Link key="en" href="/" locale="en">
+              <Button width="100%" variant="link">
+                <Typography.Label color={'white'}>English</Typography.Label>
+              </Button>
+            </Link>,
+            <Link key="ru" href="/" locale="ru">
+              <Button width="100%" variant="link">
+                <Typography.Label color={'white'}>Русский</Typography.Label>
+              </Button>
+            </Link>,
+          ]}
+          toggleButtonLabel={t('language')}
+        />
+      </div>
     </HeaderContainer>
   );
 };
