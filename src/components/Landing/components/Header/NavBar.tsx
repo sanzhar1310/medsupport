@@ -7,6 +7,7 @@ import styled, { css } from 'styled-components';
 import { useDimensions } from '../../../../hooks/useDimensionst';
 import rwd from '../../../../styles/rwd';
 import { Typography } from '../../../Typography';
+import { Button } from '../../../Button';
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -18,7 +19,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(3rem at 4rem 3.8rem)',
+    clipPath: 'circle(2rem at 4rem 3.8rem)',
     transition: {
       delay: 0.5,
       type: 'spring',
@@ -270,8 +271,19 @@ const Path: React.FC<SVGMotionProps<SVGPathElement>> = (props) => (
 );
 
 const MenuToggle: React.FC<{ toggle: () => void }> = ({ toggle }) => (
-  <button onClick={toggle}>
-    <svg width="2.3rem" height="2.3rem" viewBox="0 0 23 23">
+  <Button
+    onClick={toggle}
+    style={{
+      width: '5rem',
+      height: '5rem',
+      display: 'flex',
+      background: 'white',
+      padding: 0,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <svg width="2.3rem" height="2.3rem" viewBox="0 0 22 19">
       <Path
         variants={{
           closed: { d: 'M 2 2.5 L 20 2.5' },
@@ -293,5 +305,5 @@ const MenuToggle: React.FC<{ toggle: () => void }> = ({ toggle }) => (
         }}
       />
     </svg>
-  </button>
+  </Button>
 );
