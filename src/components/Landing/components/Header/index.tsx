@@ -69,7 +69,14 @@ export const Header: React.FC = () => {
           />
         </a>
       </SocialBlock>
-      <div style={{ width: '13rem', display: 'flex', justifyContent: 'flex-end' }}>
+      <div
+        style={{
+          width: '13rem',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          paddingRight: '1.5rem',
+        }}
+      >
         <Dropdown
           listItems={[
             <Link key="kz" href="/" locale="kz">
