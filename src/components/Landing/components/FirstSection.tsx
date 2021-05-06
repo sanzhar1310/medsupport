@@ -7,17 +7,20 @@ import { Button } from '../../Button';
 import { Typography } from '../../Typography';
 import { useRouter } from 'next/router';
 
+const headerFontSizes: Record<string, string> = {
+  ru: '4.6rem',
+  kz: '5.2rem',
+};
+
 export const FirstSection: React.FC = () => {
   const { t } = useTranslation('landing');
   const { locale } = useRouter();
-
-  const headerFontSize = locale !== 'en' && '4.9rem';
 
   return (
     <Container className="section">
       <div className="leftSide">
         <div className="content">
-          <Typography.Heading1 size={headerFontSize || undefined}>
+          <Typography.Heading1 size={locale && headerFontSizes[locale]}>
             {t('firstSection.title.publicHealth')}
             <br />
             {t('firstSection.title.medicine')}
