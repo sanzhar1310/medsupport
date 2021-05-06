@@ -52,6 +52,7 @@ const NavItemsBlock = styled.div`
   flex-flow: row nowrap;
   display: none;
   gap: 3.2rem;
+  margin: auto;
   ${rwd.DESKTOP(css`
     display: flex;
   `)}

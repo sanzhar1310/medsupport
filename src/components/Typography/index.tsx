@@ -47,6 +47,22 @@ const Heading3 = styled.h3<CommonProps>`
   ${commonCss}
 `;
 
+const Heading4 = styled.h3<CommonProps>`
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 4rem;
+  ${commonCss}
+`;
+
+const Heading5 = styled.h3<CommonProps>`
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  ${commonCss}
+`;
+
 const Heading6 = styled.h6<CommonProps>`
   font-style: normal;
   font-weight: 500;
@@ -109,6 +125,16 @@ const Label = styled.label<LabelProps>`
   ${commonCss}
 `;
 
-export const Typography = { Heading1, Heading2, Heading3, Heading6, Subtitle, Lead2, Label };
+export const Typography = {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Heading6,
+  Subtitle,
+  Lead2,
+  Label,
+};
 
 export type TextSizes = 'large' | 'medium' | 'small';

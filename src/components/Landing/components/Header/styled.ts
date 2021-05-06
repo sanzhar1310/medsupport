@@ -4,7 +4,7 @@ import rwd from '../../../../styles/rwd';
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 7.2rem;
-
+  gap: 1.6rem;
   overflow: visible;
 
   z-index: 3;
@@ -13,14 +13,18 @@ export const HeaderContainer = styled.header`
 
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
   align-items: center;
 
-  .logoLabel {
-    margin-left: 1.6rem;
-    margin-right: 1.6rem;
-
+  .logoWithLabel {
+    display: flex;
+    width: fit-content;
+    flex-wrap: nowrap;
+    gap: 1.6rem;
+    margin: auto;
     ${rwd.DESKTOP(css`
-      margin-right: 10%;
+      margin: 0;
+      /* margin-right: 10%; */
     `)}
   }
 
@@ -30,7 +34,9 @@ export const HeaderContainer = styled.header`
   }
 
   transition: 500ms all ease;
-
+  /* ${rwd.PHONE(css` */
+    /* padding: 0 1.6rem; */
+  /* `)} */
   ${rwd.DESKTOP(css`
     padding: 0 16.5rem;
   `)}
@@ -39,14 +45,7 @@ export const HeaderContainer = styled.header`
 export const SocialBlock = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  margin-left: auto;
-
-  .icon {
-    margin-right: 1.4rem;
-    :last-child {
-      margin-right: 0;
-    }
-  }
+  gap: 1.4rem;
 
   display: none;
 

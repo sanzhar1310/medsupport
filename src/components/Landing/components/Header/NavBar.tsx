@@ -31,8 +31,7 @@ const sidebar = {
 const StyledMotionNav = styled(motion.nav)`
   position: relative;
   height: 100%;
-  width: 35rem;
-  margin-right: auto;
+  width: 13rem;
   z-index: 1;
   .background {
     position: absolute;

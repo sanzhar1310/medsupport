@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion, Variants } from 'framer-motion';
 import theme from '../../styles/theme';
 import { Button } from '../Button';
+import { Typography } from '../Typography';
 
 const listVariants: Variants = {
   hidden: {
@@ -32,6 +33,7 @@ const ListContainer = styled.div`
 interface Props {
   listItems: React.ReactNode[];
   toggleButtonLabel: string;
+  toggleWidth?: string;
 }
 
 export const Dropdown: React.FC<Props> = (props) => {
@@ -60,11 +62,12 @@ export const Dropdown: React.FC<Props> = (props) => {
       }}
     >
       <Button
+        width={props.toggleWidth}
         onClick={() => setShow((prev) => !prev)}
         variant={show ? 'primary' : 'link'}
         style={{ zIndex: 3 }}
       >
-        {props.toggleButtonLabel}
+        <Typography.Subtitle>{props.toggleButtonLabel}</Typography.Subtitle>
       </Button>
       <ListContainer>
         <motion.ul

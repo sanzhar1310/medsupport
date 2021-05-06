@@ -38,10 +38,10 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer ref={headerRef}>
       <NavBar />
-      <Logo />
-      <Typography.Subtitle weight="bold" className="logoLabel">
-        MedSupport
-      </Typography.Subtitle>
+      <div className="logoWithLabel">
+        <Logo />
+        <Typography.Heading4>MedSupport</Typography.Heading4>
+      </div>
       <NavItems />
       <SocialBlock className="socialBlock">
         <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
@@ -69,22 +69,22 @@ export const Header: React.FC = () => {
           />
         </a>
       </SocialBlock>
-      <div style={{ margin: '0 3.2rem' }}>
+      <div style={{ width: '13rem', display: 'flex', justifyContent: 'flex-end' }}>
         <Dropdown
           listItems={[
             <Link key="kz" href="/" locale="kz">
               <Button width="100%" variant="link">
-                <Typography.Label color={'white'}>Қазақ</Typography.Label>
+                <Typography.Subtitle color={'white'}>Қазақ</Typography.Subtitle>
               </Button>
             </Link>,
             <Link key="en" href="/" locale="en">
               <Button width="100%" variant="link">
-                <Typography.Label color={'white'}>English</Typography.Label>
+                <Typography.Subtitle color={'white'}>English</Typography.Subtitle>
               </Button>
             </Link>,
             <Link key="ru" href="/" locale="ru">
               <Button width="100%" variant="link">
-                <Typography.Label color={'white'}>Русский</Typography.Label>
+                <Typography.Subtitle color={'white'}>Русский</Typography.Subtitle>
               </Button>
             </Link>,
           ]}

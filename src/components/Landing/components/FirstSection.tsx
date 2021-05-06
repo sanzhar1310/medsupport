@@ -11,7 +11,7 @@ export const FirstSection: React.FC = () => {
   const { t } = useTranslation('landing');
   const { locale } = useRouter();
 
-  const headerFontSize = locale !== 'en' && '5.2rem';
+  const headerFontSize = locale !== 'en' && '4.9rem';
 
   return (
     <Container className="section">
