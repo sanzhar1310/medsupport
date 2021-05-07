@@ -5,9 +5,14 @@ import { Typography } from '../../../Typography';
 import { Logo } from '../Logo';
 import { NavItems } from '../NavItems';
 import { NavBar } from './NavBar';
+import { Dropdown } from '../../../Dropdown';
+import Link from 'next/link';
+import { Button } from '../../../Button';
+import { useTranslation } from 'react-i18next';
 
 export const Header: React.FC = () => {
   const headerRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     window?.addEventListener('scroll', handleScroll);
@@ -33,10 +38,10 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer ref={headerRef}>
       <NavBar />
-      <Logo />
-      <Typography.Subtitle weight="bold" className="logoLabel">
-        MedSupport
-      </Typography.Subtitle>
+      <div className="logoWithLabel">
+        <Logo />
+        <Typography.Heading4>MedSupport</Typography.Heading4>
+      </div>
       <NavItems />
       <SocialBlock className="socialBlock">
         <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
@@ -64,6 +69,35 @@ export const Header: React.FC = () => {
           />
         </a>
       </SocialBlock>
+      <div
+        style={{
+          width: '13rem',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          paddingRight: '1.5rem',
+        }}
+      >
+        <Dropdown
+          listItems={[
+            <Link key="kz" href="/" locale="kz">
+              <Button width="100%" variant="link">
+                <Typography.Subtitle color={'white'}>Қазақ</Typography.Subtitle>
+              </Button>
+            </Link>,
+            <Link key="en" href="/" locale="en">
+              <Button width="100%" variant="link">
+                <Typography.Subtitle color={'white'}>English</Typography.Subtitle>
+              </Button>
+            </Link>,
+            <Link key="ru" href="/" locale="ru">
+              <Button width="100%" variant="link">
+                <Typography.Subtitle color={'white'}>Русский</Typography.Subtitle>
+              </Button>
+            </Link>,
+          ]}
+          toggleButtonLabel={t('language')}
+        />
+      </div>
     </HeaderContainer>
   );
 };

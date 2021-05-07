@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled, {
   css,
   DefaultTheme,
@@ -65,14 +66,14 @@ const buttonConfigs: ButtonConfigs = {
       border: 0.1rem solid ${primaryColor};
     `,
     link: css<ButtonStyledProps>`
-      background-color: ${primaryColor};
-      color: ${whiteColor};
-      -webkit-text-fill-color: ${whiteColor};
+      background-color: transparent;
+      color: ${primaryColor};
+      -webkit-text-fill-color: ${primaryColor};
     `,
   },
 };
 
-export const Button = styled.button<ButtonStyledProps>`
+export const Button = styled(motion.button)<ButtonStyledProps>`
   width: ${({ width }) => width || 'inherit'};
   height: fit-content;
   font-weight: bold;

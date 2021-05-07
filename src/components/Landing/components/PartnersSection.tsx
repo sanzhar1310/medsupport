@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
@@ -8,13 +9,7 @@ const partners = [
   {
     image: '',
     // '/images/landing/partners/health-ministry.png',
-    title: (
-      <>
-        <span>Ministry of Healthcare</span>
-        <br />
-        <span>Republic of Kazakhstan</span>
-      </>
-    ),
+    title: 'partners.ministry',
   },
   {
     image: '/images/landing/partners/unicef.png',
@@ -40,6 +35,8 @@ const partners = [
 ];
 
 export const PartnersSection: React.FC = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <Container id="partners" className="section">
       <Typography.Heading2 align="center" className="heading">
@@ -60,7 +57,16 @@ export const PartnersSection: React.FC = () => {
                 />
               </PartnerImgContainer>
             )}
-            {partner.title && <Typography.Label size="large">{partner.title}</Typography.Label>}
+            {partner.title && (
+              <Typography.Label
+                size="large"
+                dangerouslySetInnerHTML={
+                  typeof partner.title === 'string' ? { __html: t(partner.title) } : undefined
+                }
+              >
+                {typeof partner.title !== 'string' ? partner.title : null}
+              </Typography.Label>
+            )}
           </PartnerContainer>
         ))}
       </PartnersRowList>

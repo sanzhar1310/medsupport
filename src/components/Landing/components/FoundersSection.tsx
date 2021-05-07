@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Typography } from '../../Typography';
@@ -13,37 +14,38 @@ interface Founder {
 const founders: Founder[] = [
   {
     photo: '/images/landing/founders/dinara.jpg',
-    title: 'Dinara Uskenbayeva',
-    description: 'Biologist, research assistant',
+    title: 'founders.dinara',
+    description: 'founders.dinara.description',
   },
   {
     photo: '/images/landing/founders/botagoz.jpg',
-    title: 'Botagoz Kaukenova',
-    description: 'MD',
+    title: 'founders.botagoz',
+    description: 'founders.botagoz.description',
   },
   {
     photo: '/images/landing/founders/akmaral.jpg',
-    title: 'Akmaral Tursunova',
-    description: 'Lawyer',
+    title: 'founders.akmaral',
+    description: 'founders.akmaral.description',
   },
   {
     photo: '/images/landing/founders/dana.jpg',
-    title: 'Dana Akilbekova',
-    description: 'PhD, Professor',
+    title: 'founders.dana',
+    description: 'founders.dana.description',
   },
   {
     photo: '/images/landing/founders/tomiris.jpg',
-    title: 'Tomiris Mulikova',
-
-    description: 'Chemist, research assistant',
+    title: 'founders.tomiris',
+    description: 'founders.tomiris.description',
   },
 ];
 
 export const FoundersSection: React.FC = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <Container id="team" className="section">
       <FounderList>
-        <Typography.Heading2>Founders</Typography.Heading2>
+        <Typography.Heading2>{t('founders.header')}</Typography.Heading2>
         <FounderItem founder={founders[0]} />
         <FounderItem founder={founders[1]} />
       </FounderList>
@@ -56,21 +58,25 @@ export const FoundersSection: React.FC = () => {
   );
 };
 
-const FounderItem: React.FC<{ founder: Founder }> = ({ founder }) => (
-  <FounderContainer>
-    <div className="founderImageContainer">
-      <Image
-        loader={({ src }) => src}
-        src={founder.photo}
-        alt="foundersPhoto"
-        objectFit="cover"
-        layout="fill"
-      />
-    </div>
-    <Typography.Heading3 className="title">{founder.title}</Typography.Heading3>
-    <Typography.Heading6>{founder.description}</Typography.Heading6>
-  </FounderContainer>
-);
+const FounderItem: React.FC<{ founder: Founder }> = ({ founder }) => {
+  const { t } = useTranslation('landing');
+
+  return (
+    <FounderContainer>
+      <div className="founderImageContainer">
+        <Image
+          loader={({ src }) => src}
+          src={founder.photo}
+          alt="foundersPhoto"
+          objectFit="cover"
+          layout="fill"
+        />
+      </div>
+      <Typography.Heading3 className="title">{t(founder.title)}</Typography.Heading3>
+      <Typography.Heading6>{t(founder.description)}</Typography.Heading6>
+    </FounderContainer>
+  );
+};
 
 const Container = styled.div`
   width: 100%;
@@ -80,14 +86,14 @@ const Container = styled.div`
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center;
-  /* gap: 7rem; */
+  gap: 7rem;
   padding-top: calc(7.2rem + 6.4rem);
 `;
 
 const FounderList = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  /* gap: 8rem; */
+  gap: 5rem;
 
   h2 {
     margin-bottom: 4rem;
@@ -103,7 +109,7 @@ const FounderContainer = styled.div`
   width: 100%;
   max-width: 60rem;
   height: fit-content;
-  padding: 4rem;
+  /* padding: 4rem; */
   display: flex;
   flex-flow: column nowrap;
 

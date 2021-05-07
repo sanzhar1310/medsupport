@@ -1,32 +1,39 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 import styled, { css } from 'styled-components';
 import rwd from '../../../styles/rwd';
 import { Button } from '../../Button';
 import { Typography } from '../../Typography';
+import { useRouter } from 'next/router';
+
+const headerFontSizes: Record<string, string> = {
+  ru: '4.6rem',
+  kz: '5.2rem',
+};
 
 export const FirstSection: React.FC = () => {
+  const { t } = useTranslation('landing');
+  const { locale } = useRouter();
+
   return (
     <Container className="section">
       <div className="leftSide">
         <div className="content">
-          <Typography.Heading1>
-            PUBLIC HEALTH
+          <Typography.Heading1 size={locale && headerFontSizes[locale]}>
+            {t('firstSection.title.publicHealth')}
             <br />
-            MEDICINE
+            {t('firstSection.title.medicine')}
             <br />
-            SCIENCE
+            {t('firstSection.title.science')}
           </Typography.Heading1>
           <div className="subtitle">
-            <Typography.Subtitle>
-              Community of scientists and medical workers promoting science and empirical thinking
-              in regards to medicine, healthcare, and personal health.
-            </Typography.Subtitle>
+            <Typography.Subtitle>{t('firstSection.subtitle')}</Typography.Subtitle>
           </div>
           <div className="buttonWrapper">
             <a className="icon" href="https://www.instagram.com/medsupportkz/" target="__blank">
               <Button size="large" as="a">
-                <Typography.Label>Subscribe on Instagram</Typography.Label>
+                <Typography.Label>{t('firstSection.button.subscribe')}</Typography.Label>
               </Button>
             </a>
           </div>
@@ -67,6 +74,7 @@ const Container = styled.div`
     align-items: center;
 
     .content {
+      word-break: break-word;
       /* max-width: 54rem; */
       .subtitle {
         max-width: 54rem;
@@ -99,6 +107,7 @@ const Container = styled.div`
     .rightSide {
       height: 35vh;
       flex: unset;
+
       /* flex-flow: row nowrap;
       display: none; */
     }
@@ -108,9 +117,11 @@ const Container = styled.div`
       height: fit-content;
       flex: unset;
       padding: 0;
-      padding-top: 14.5rem;
+      padding-top: 8.5rem;
       justify-content: center;
       align-items: flex-start;
+      padding-left: 3.2rem;
+      padding-right: 3.2rem;
     }
 
     /* background: red; */
@@ -134,6 +145,8 @@ const Container = styled.div`
       padding-top: 14.5rem;
       justify-content: center;
       align-items: flex-start;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     /* background: red; */

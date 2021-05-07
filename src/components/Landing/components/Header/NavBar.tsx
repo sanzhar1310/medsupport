@@ -1,11 +1,13 @@
-import { motion, SVGMotionProps, useCycle } from 'framer-motion';
+import React, { useRef } from 'react';
+import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import { motion, SVGMotionProps, useCycle, Variants } from 'framer-motion';
 import styled, { css } from 'styled-components';
 import { useDimensions } from '../../../../hooks/useDimensionst';
 import rwd from '../../../../styles/rwd';
 import { Typography } from '../../../Typography';
+import { Button } from '../../../Button';
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -17,7 +19,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(3rem at 4rem 3.8rem)',
+    clipPath: 'circle(2rem at 4rem 3.8rem)',
     transition: {
       delay: 0.5,
       type: 'spring',
@@ -30,8 +32,7 @@ const sidebar = {
 const StyledMotionNav = styled(motion.nav)`
   position: relative;
   height: 100%;
-  width: 35rem;
-  margin-right: auto;
+  width: 13rem;
   z-index: 1;
   .background {
     position: absolute;
@@ -123,7 +124,7 @@ const ToggleLayout = styled.div`
   height: 100vh;
 `;
 
-export const NavBar = () => {
+export const NavBar: React.FC = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef<HTMLElement>(null);
   const { height } = useDimensions(containerRef);
@@ -161,22 +162,24 @@ const SocialLinkWrap = styled.a`
   align-items: center;
 `;
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <motion.ul variants={navigationVariants}>
       <MenuItem>
         <Link href="#about">
-          <Typography.Subtitle className="link">About us</Typography.Subtitle>
+          <Typography.Subtitle className="link">{t('header.aboutUs')}</Typography.Subtitle>
         </Link>
       </MenuItem>
       <MenuItem>
         <Link href="#team">
-          <Typography.Subtitle className="link">Team</Typography.Subtitle>
+          <Typography.Subtitle className="link">{t('header.team')}</Typography.Subtitle>
         </Link>
       </MenuItem>
       <MenuItem>
         <Link href="#partners">
-          <Typography.Subtitle className="link">Partners</Typography.Subtitle>
+          <Typography.Subtitle className="link">{t('header.partners')}</Typography.Subtitle>
         </Link>
       </MenuItem>
       <MenuItem />
@@ -225,10 +228,11 @@ const Navigation = () => {
   );
 };
 
-const variants = {
+const variants: Variants = {
   open: {
     y: 0,
     opacity: 1,
+    visibility: 'visible',
     transition: {
       y: { stiffness: 1000, velocity: -100 },
     },
@@ -236,6 +240,7 @@ const variants = {
   closed: {
     y: 50,
     opacity: 0,
+    visibility: 'hidden',
     transition: {
       y: { stiffness: 1000 },
     },
@@ -266,8 +271,19 @@ const Path: React.FC<SVGMotionProps<SVGPathElement>> = (props) => (
 );
 
 const MenuToggle: React.FC<{ toggle: () => void }> = ({ toggle }) => (
-  <button onClick={toggle}>
-    <svg width="2.3rem" height="2.3rem" viewBox="0 0 23 23">
+  <Button
+    onClick={toggle}
+    style={{
+      width: '5rem',
+      height: '5rem',
+      display: 'flex',
+      background: 'white',
+      padding: 0,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <svg width="2.3rem" height="2.3rem" viewBox="0 0 22 19">
       <Path
         variants={{
           closed: { d: 'M 2 2.5 L 20 2.5' },
@@ -289,5 +305,5 @@ const MenuToggle: React.FC<{ toggle: () => void }> = ({ toggle }) => (
         }}
       />
     </svg>
-  </button>
+  </Button>
 );

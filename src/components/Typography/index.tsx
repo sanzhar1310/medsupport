@@ -4,9 +4,11 @@ import { ColorTypes } from '../../styles/_colors';
 interface CommonProps {
   color?: ColorTypes;
   align?: 'start' | 'center' | 'end';
+  size?: string | number;
 }
 
 const commonCss = css<CommonProps>`
+  cursor: inherit;
   ${({ color, theme }) => {
     return (
       color &&
@@ -18,6 +20,7 @@ const commonCss = css<CommonProps>`
   }}
 
   ${({ align }) => align && `text-align: ${align}`}
+  ${({ size }) => size && `font-size: ${size}`}
 `;
 
 const Heading1 = styled.h1<CommonProps>`
@@ -41,6 +44,22 @@ const Heading3 = styled.h3<CommonProps>`
   font-weight: 800;
   font-size: 4rem;
   line-height: 5.4rem;
+  ${commonCss}
+`;
+
+const Heading4 = styled.h3<CommonProps>`
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 4rem;
+  ${commonCss}
+`;
+
+const Heading5 = styled.h3<CommonProps>`
+  font-style: normal;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
   ${commonCss}
 `;
 
@@ -106,6 +125,16 @@ const Label = styled.label<LabelProps>`
   ${commonCss}
 `;
 
-export const Typography = { Heading1, Heading2, Heading3, Heading6, Subtitle, Lead2, Label };
+export const Typography = {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Heading6,
+  Subtitle,
+  Lead2,
+  Label,
+};
 
 export type TextSizes = 'large' | 'medium' | 'small';
